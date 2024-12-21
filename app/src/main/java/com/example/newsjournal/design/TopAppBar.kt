@@ -16,7 +16,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
-import androidx.compose.ui.modifier.ModifierLocalReadScope
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -54,10 +53,7 @@ fun TopAppBar(
         Text(
             text = title,
             fontSize = 28.sp,
-            textAlign = TextAlign.Start,
-            modifier = Modifier
-
-
+            textAlign = TextAlign.Start
         )
 
         if (endImage != null) {
