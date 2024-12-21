@@ -77,8 +77,8 @@ fun TopAppBar(
 @Composable
 fun PrimaryTopAppbarPreview() {
     TopAppBar(
-        startImage = painterResource(R.drawable.person2),
-        endImage = painterResource(R.drawable.star1),
+        startImage = painterResource(R.drawable.person_24),
+        endImage = painterResource(R.drawable.star_24),
         title = "title",
         startImageClick = {}
     )
@@ -88,7 +88,7 @@ fun PrimaryTopAppbarPreview() {
 @Composable
 fun SecondaryTopAppbarPreview() {
     TopAppBar(
-        startImage = painterResource(R.drawable.person2),
+        startImage = painterResource(R.drawable.person_24),
         endImage = null,
         title = "Title",
         startImageClick = {}

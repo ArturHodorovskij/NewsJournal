@@ -94,9 +94,9 @@ fun BotAppBar(
 @Composable
 fun PrimaryBotAppbarPreview() {
     BotAppBar(
-        firstImage = painterResource(R.drawable.home1),
-        secondImage = painterResource(R.drawable.star1),
-        thirdImage = painterResource(R.drawable.tagscollection1),
+        firstImage = painterResource(R.drawable.home_24),
+        secondImage = painterResource(R.drawable.star_24),
+        thirdImage = painterResource(R.drawable.collections_bookmark_24),
         startImageClick = {},
         text1Image = "Home",
         text2Image = "Favorite",

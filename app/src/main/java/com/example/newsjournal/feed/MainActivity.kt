@@ -65,29 +65,26 @@ fun HomePage(context: Context) {
         verticalArrangement = Arrangement.SpaceBetween
     ) {
         Box(modifier = Modifier) {
-
             TopAppBar(
                 title = "NEWS JOURNAL",
-                startImage = painterResource(R.drawable.person2),
+                startImage = painterResource(R.drawable.person_24),
                 startImageClick = {
                     Toast.makeText(context, "text", Toast.LENGTH_LONG).show()
                 }
             )
         }
-
         Box(
             modifier = Modifier
 
         ) {
             MidlLine()
         }
-
         Box(modifier = Modifier) {
 
             BotAppBar(
-                firstImage = painterResource(R.drawable.home1),
-                secondImage = painterResource(R.drawable.star1),
-                thirdImage = painterResource(R.drawable.tagscollection1),
+                firstImage = painterResource(R.drawable.home_24),
+                secondImage = painterResource(R.drawable.star_24),
+                thirdImage = painterResource(R.drawable.collections_bookmark_24),
                 startImageClick = {Toast.makeText(context, "text", Toast.LENGTH_LONG).show()},
                 text1Image = "Home",
                 text2Image = "Favorite",
@@ -96,7 +93,6 @@ fun HomePage(context: Context) {
         }
     }
 }
-
 
 @Composable
 fun MidlLine() {
@@ -116,43 +112,9 @@ fun MidlLine() {
     }
 }
 
-
-
-@Composable
-fun LogoText() {
-    Text(
-        text = "NJ",
-        fontSize = 80.sp,
-        fontFamily = FontFamily.Serif,
-        lineHeight = 150.sp,
-        textAlign = TextAlign.Center,
-        modifier = Modifier
-            .border(
-                width = 6.dp,
-                color = Color.Black,
-                shape = RoundedCornerShape(20.dp)
-            )
-            .padding(10.dp)
-    )
-}
-
-@Composable
-fun LoadingPage() {
-    Box(
-        contentAlignment = Alignment.Center,
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color.White)
-    ) {
-        LogoText()
-    }
-}
-
-
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun GreetingPreview2() {
     NewsJournalTheme {
-//        HomePage()
     }
 }
