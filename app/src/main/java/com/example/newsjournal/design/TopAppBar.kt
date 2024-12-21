@@ -16,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.modifier.ModifierLocalReadScope
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -34,16 +35,16 @@ fun TopAppBar(
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .height(60.dp)
-            .background(defaultBackground),
+            .height(100.dp)
+            .background(defaultBackground)
+            .padding(vertical = 8.dp, horizontal = 16.dp),
         horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.CenterVertically
+        verticalAlignment = Alignment.Bottom
     ) {
         if (startImage != null) {
             Image(
                 modifier = Modifier
-                    .size(48.dp)
-                    .padding(horizontal = 8.dp)
+                    .size(32.dp)
                     .clickable { startImageClick() },
                 painter = startImage,
                 contentDescription = ""
@@ -52,20 +53,22 @@ fun TopAppBar(
 
         Text(
             text = title,
-            fontSize = 24.sp,
-            textAlign = TextAlign.Start
+            fontSize = 28.sp,
+            textAlign = TextAlign.Start,
+            modifier = Modifier
+
+
         )
 
         if (endImage != null) {
             Image(
                 modifier = Modifier
-                    .size(48.dp)
-                    .padding(horizontal = 8.dp),
+                    .size(32.dp),
                 painter = endImage,
                 contentDescription = ""
             )
         } else {
-            Box(modifier = Modifier.width(48.dp))
+            Box(modifier = Modifier.width(32.dp))
         }
     }
 }

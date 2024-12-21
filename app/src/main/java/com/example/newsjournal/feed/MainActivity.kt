@@ -15,6 +15,8 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -33,6 +35,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.newsjournal.R
+import com.example.newsjournal.design.BotAppBar
 import com.example.newsjournal.design.TopAppBar
 import com.example.newsjournal.ui.theme.NewsJournalTheme
 import com.example.newsjournal.ui.theme.defaultBackground
@@ -61,7 +64,8 @@ fun HomePage(context: Context) {
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.SpaceBetween
     ) {
-        Box(modifier = Modifier.weight(1f)) {
+        Box(modifier = Modifier) {
+
             TopAppBar(
                 title = "NEWS JOURNAL",
                 startImage = painterResource(R.drawable.person2),
@@ -71,22 +75,35 @@ fun HomePage(context: Context) {
             )
         }
 
-        Box(modifier = Modifier.weight(9f)) {
+        Box(
+            modifier = Modifier
+
+        ) {
             MidlLine()
         }
 
-        Box(modifier = Modifier.weight(1f)) {
-            DownLine()
+        Box(modifier = Modifier) {
+
+            BotAppBar(
+                firstImage = painterResource(R.drawable.home1),
+                secondImage = painterResource(R.drawable.star1),
+                thirdImage = painterResource(R.drawable.tagscollection1),
+                startImageClick = {Toast.makeText(context, "text", Toast.LENGTH_LONG).show()},
+                text1Image = "Home",
+                text2Image = "Favorite",
+                text3Image = "Tags"
+            )
         }
     }
 }
+
 
 @Composable
 fun MidlLine() {
     Box(
         modifier = Modifier
             .background(Color.White)
-            .fillMaxSize()
+            .fillMaxWidth()
     ) {
         Text(
             text = "News",
@@ -95,31 +112,11 @@ fun MidlLine() {
             modifier = Modifier
                 .padding(16.dp)
                 .clickable { }
-
         )
     }
 }
 
-@Composable
-fun DownLine() {
-    val homeIcon = painterResource(R.drawable.home1)
-    val saveIcon = painterResource(R.drawable.star1)
-    val tagsIcon = painterResource(R.drawable.tagscollection1)
 
-    Row(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(defaultBackground)
-            .padding(horizontal = 16.dp, vertical = 8.dp),
-        horizontalArrangement = Arrangement.SpaceBetween
-    ) {
-        BarNavigationItem(homeIcon, "home")
-
-        BarNavigationItem(saveIcon, "favourite")
-
-        BarNavigationItem(tagsIcon, "tags")
-    }
-}
 
 @Composable
 fun LogoText() {
@@ -151,21 +148,6 @@ fun LoadingPage() {
     }
 }
 
-@Composable
-fun BarNavigationItem(
-    image: Painter,
-    buttonText: String
-) {
-    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-        Image(
-            painter = image,
-            contentDescription = null,
-            modifier = Modifier
-                .size(32.dp)
-        )
-        Text(text = buttonText)
-    }
-}
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
