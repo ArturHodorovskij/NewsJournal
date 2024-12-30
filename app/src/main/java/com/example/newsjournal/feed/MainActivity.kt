@@ -90,7 +90,6 @@ fun MidlLine(modifier: Modifier) {
             .background(Color.White)
             .wrapContentSize(Alignment.TopStart)
             .verticalScroll(ScrollState(0))
-
     ) {
         Text(
             text = stringResource(R.string.news),
