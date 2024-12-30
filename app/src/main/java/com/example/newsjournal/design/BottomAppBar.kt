@@ -14,7 +14,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -30,14 +29,14 @@ fun BottomAppBar(
     text1Image: String,
     text2Image: String,
     text3Image: String,
-    startImageClick: () -> Unit,
-    modifier: Modifier=Modifier
+    startImageClick: () -> Unit
+
 ) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .height(80.dp)
-            .background(color = Color.Gray)
+            .background(defaultBackground)
             .padding(vertical = 8.dp, horizontal = 16.dp),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.Top,

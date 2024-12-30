@@ -23,6 +23,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
@@ -68,8 +69,7 @@ fun RegistrationPage() {
                     focusedContainerColor = Color.White,
                     focusedTextColor = Color(0xff222222)
                 ),
-                textStyle = androidx.compose.ui.text.TextStyle(fontSize = 16.sp),
-//че это за иморт такой ебаный тут ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                textStyle = TextStyle(fontSize = 16.sp),
                 placeholder = { Text(text = "Email") },
                 modifier = Modifier
                     .size(height = 56.dp, width = 240.dp)
@@ -97,8 +97,7 @@ fun RegistrationPage() {
                     focusedContainerColor = Color.White,
                     focusedTextColor = Color(0xff222222)
                 ),
-                textStyle = androidx.compose.ui.text.TextStyle(fontSize = 16.sp),
-//че это за иморт такой ебаный тут ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                textStyle = TextStyle(fontSize = 16.sp),
                 placeholder = { Text(text = "Password") },
                 modifier = Modifier
                     .size(height = 56.dp, width = 240.dp)

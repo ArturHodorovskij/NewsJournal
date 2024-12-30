@@ -1,6 +1,5 @@
 package com.example.newsjournal.design
 
-
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -22,6 +21,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -38,17 +38,14 @@ fun NewPasswordPage() {
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        TopAppBar(
-            title = "Change password",
+        TopAppBar(title = "Change password",
             startImage = painterResource(R.drawable.reply_24),
-            startImageClick = {}
-        )
+            startImageClick = {})
         Text(
             text = "Enter email",
             fontSize = 14.sp,
             fontWeight = FontWeight.Normal,
-            modifier = Modifier
-                .padding(vertical = 16.dp)
+            modifier = Modifier.padding(vertical = 16.dp)
         )
         Box(
             modifier = Modifier
@@ -65,19 +62,16 @@ fun NewPasswordPage() {
                     focusedContainerColor = Color.White,
                     focusedTextColor = Color(0xff222222)
                 ),
-                textStyle = androidx.compose.ui.text.TextStyle(fontSize = 16.sp),
-//че это за иморт такой ебаный тут ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                textStyle = TextStyle(fontSize = 16.sp),
                 placeholder = { Text(text = "Email") },
-                modifier = Modifier
-                    .size(height = 56.dp, width = 240.dp)
+                modifier = Modifier.size(height = 56.dp, width = 240.dp)
             )
         }
         Text(
             text = "Enter the verification code",
             fontSize = 14.sp,
             fontWeight = FontWeight.Normal,
-            modifier = Modifier
-                .padding(vertical = 16.dp)
+            modifier = Modifier.padding(vertical = 16.dp)
         )
         Box(
             modifier = Modifier
@@ -94,19 +88,16 @@ fun NewPasswordPage() {
                     focusedContainerColor = Color.White,
                     focusedTextColor = Color(0xff222222)
                 ),
-                textStyle = androidx.compose.ui.text.TextStyle(fontSize = 16.sp),
-//че это за иморт такой ебаный тут ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                textStyle = TextStyle(fontSize = 16.sp),
                 placeholder = { Text(text = "Verification code") },
-                modifier = Modifier
-                    .size(height = 56.dp, width = 240.dp)
+                modifier = Modifier.size(height = 56.dp, width = 240.dp)
             )
         }
         Text(
             text = "Create new password",
             fontSize = 14.sp,
             fontWeight = FontWeight.Normal,
-            modifier = Modifier
-                .padding(vertical = 16.dp)
+            modifier = Modifier.padding(vertical = 16.dp)
         )
         Box(
             modifier = Modifier
@@ -123,11 +114,9 @@ fun NewPasswordPage() {
                     focusedContainerColor = Color.White,
                     focusedTextColor = Color(0xff222222)
                 ),
-                textStyle = androidx.compose.ui.text.TextStyle(fontSize = 16.sp),
-//че это за иморт такой ебаный тут ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                textStyle = TextStyle(fontSize = 16.sp),
                 placeholder = { Text(text = "Password") },
-                modifier = Modifier
-                    .size(height = 56.dp, width = 240.dp)
+                modifier = Modifier.size(height = 56.dp, width = 240.dp)
             )
         }
         Button(
@@ -135,8 +124,7 @@ fun NewPasswordPage() {
             shape = RoundedCornerShape(15.dp),
             border = BorderStroke(3.dp, Color.DarkGray),
             colors = ButtonDefaults.buttonColors(
-                contentColor = Color.White,
-                containerColor = Color.Black
+                contentColor = Color.White, containerColor = Color.Black
             ),
             modifier = Modifier
                 .padding(16.dp)

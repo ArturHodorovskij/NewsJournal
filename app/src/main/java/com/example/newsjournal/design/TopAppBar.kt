@@ -29,8 +29,7 @@ fun TopAppBar(
     startImage: Painter? = null,
     title: String,
     endImage: Painter? = null,
-    startImageClick: () -> Unit,
-    modifier: Modifier=Modifier
+    startImageClick: () -> Unit
 ) {
     Row(
         modifier = Modifier
@@ -50,13 +49,11 @@ fun TopAppBar(
                 contentDescription = ""
             )
         }
-
         Text(
             text = title,
             fontSize = 28.sp,
             textAlign = TextAlign.Start
         )
-
         if (endImage != null) {
             Image(
                 modifier = Modifier

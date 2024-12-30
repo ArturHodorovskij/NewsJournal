@@ -1,8 +1,6 @@
 package com.example.newsjournal.design
 
-
 import androidx.compose.foundation.ScrollState
-import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -20,10 +18,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.newsjournal.R
 
-
 @Composable
 fun PrivacyPolicyPage() {
-
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Top,

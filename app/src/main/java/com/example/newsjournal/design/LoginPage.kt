@@ -1,6 +1,5 @@
 package com.example.newsjournal.design
 
-
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
@@ -12,7 +11,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
@@ -26,6 +24,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
@@ -33,7 +32,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.newsjournal.R
 import com.example.newsjournal.ui.theme.defaultBackground
-
 
 @Composable
 fun LoginPage() {
@@ -73,14 +71,14 @@ fun LoginPage() {
                     focusedTextColor = Color(0xff222222)
                 ),
 
-                textStyle = androidx.compose.ui.text.TextStyle(fontSize = 16.sp),
-//че это за иморт такой ебаный тут ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                textStyle = TextStyle(fontSize = 16.sp),
+
                 placeholder = { Text(text = "Email") },
                 modifier = Modifier
                     .size(height = 56.dp, width = 240.dp)
             )
         }
-//        BottomAppBar {  } ааааа наааахууууяяя мы их рисовали руками ааа?)
+
         Text(
             text = "Enter password",
             fontSize = 14.sp,
@@ -103,8 +101,8 @@ fun LoginPage() {
                     focusedContainerColor = Color.White,
                     focusedTextColor = Color(0xff222222)
                 ),
-                textStyle = androidx.compose.ui.text.TextStyle(fontSize = 16.sp),
-//че это за иморт такой ебаный тут ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                textStyle = TextStyle(fontSize = 16.sp),
+
                 placeholder = { Text(text = "Password") },
                 modifier = Modifier
                     .size(height = 56.dp, width = 240.dp)
@@ -147,7 +145,7 @@ fun LoginPage() {
             ),
             border = BorderStroke(3.dp, Color.DarkGray),
             colors = ButtonDefaults.buttonColors(
-                contentColor = Color.Black,       // цвет текста
+                contentColor = Color.Black,
                 containerColor = defaultBackground
             ),
             modifier = Modifier
