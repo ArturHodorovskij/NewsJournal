@@ -60,42 +60,37 @@ fun HomePage(context: Context) {
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.SpaceBetween
     ) {
-        Box(modifier = Modifier)
-        {
-            TopAppBar(
-                title = "NEWS JOURNAL",
-                startImage = painterResource(R.drawable.person_24),
-                startImageClick = {
-                    Toast.makeText(context, "text", Toast.LENGTH_LONG).show()
-                }
-            )
-        }
-        Box(modifier = Modifier) {
-            MidlLine()
-        }
-        Box(modifier = Modifier) {
-            BottomAppBar(
-                firstImage = painterResource(R.drawable.home_24),
-                secondImage = painterResource(R.drawable.star_24),
-                thirdImage = painterResource(R.drawable.collections_bookmark_24),
-                startImageClick = { Toast.makeText(context, "text", Toast.LENGTH_LONG).show() },
-                text1Image = "Home",
-                text2Image = "Favorite",
-                text3Image = "Tags"
-            )
-        }
+        TopAppBar(
+            title = "NEWS JOURNAL",
+            startImage = painterResource(R.drawable.person_24),
+            startImageClick = {
+                Toast.makeText(context, "text", Toast.LENGTH_LONG).show()
+            }
+        )
+
+        MidlLine(Modifier.weight(1f))
+
+        BottomAppBar(
+            firstImage = painterResource(R.drawable.home_24),
+            secondImage = painterResource(R.drawable.star_24),
+            thirdImage = painterResource(R.drawable.collections_bookmark_24),
+            startImageClick = { Toast.makeText(context, "text", Toast.LENGTH_LONG).show() },
+            text1Image = "Home",
+            text2Image = "Favorite",
+            text3Image = "Tags"
+        )
     }
 }
 
 @Composable
-fun MidlLine() {
+fun MidlLine(modifier: Modifier) {
     Box(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
-//            .height(820.dp) //как всунуть эту хуйню между Барами без хардкода?
             .background(Color.White)
-//            .wrapContentSize(Alignment.TopStart)
+            .wrapContentSize(Alignment.TopStart)
             .verticalScroll(ScrollState(0))
+
     ) {
         Text(
             text = stringResource(R.string.news),
