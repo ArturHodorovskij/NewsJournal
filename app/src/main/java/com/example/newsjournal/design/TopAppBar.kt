@@ -29,7 +29,8 @@ fun TopAppBar(
     startImage: Painter? = null,
     title: String,
     endImage: Painter? = null,
-    startImageClick: () -> Unit
+    startImageClick: () -> Unit,
+    modifier: Modifier=Modifier
 ) {
     Row(
         modifier = Modifier

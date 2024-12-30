@@ -14,6 +14,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -22,20 +23,21 @@ import com.example.newsjournal.R
 import com.example.newsjournal.ui.theme.defaultBackground
 
 @Composable
-fun BotAppBar(
+fun BottomAppBar(
     firstImage: Painter? = null,
     secondImage: Painter? = null,
     thirdImage: Painter? = null,
     text1Image: String,
     text2Image: String,
     text3Image: String,
-    startImageClick: () -> Unit
+    startImageClick: () -> Unit,
+    modifier: Modifier=Modifier
 ) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .height(80.dp)
-            .background(defaultBackground)
+            .background(color = Color.Gray)
             .padding(vertical = 8.dp, horizontal = 16.dp),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.Top,
@@ -93,7 +95,7 @@ fun BotAppBar(
 @Preview(showBackground = true)
 @Composable
 fun PrimaryBotAppbarPreview() {
-    BotAppBar(
+    BottomAppBar(
         firstImage = painterResource(R.drawable.home_24),
         secondImage = painterResource(R.drawable.star_24),
         thirdImage = painterResource(R.drawable.collections_bookmark_24),
