@@ -6,22 +6,19 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
@@ -42,9 +39,10 @@ class MainActivity : ComponentActivity() {
         setContent {
             NewsJournalTheme {
                 Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
+//                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background,
+
+                    ) {
                     HomePage(this)
                 }
             }
@@ -57,8 +55,8 @@ class MainActivity : ComponentActivity() {
 
 fun HomePage(context: Context) {
     Column(
-        modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.SpaceBetween
+        verticalArrangement = Arrangement.SpaceBetween,
+        modifier = Modifier.fillMaxSize()
     ) {
         TopAppBar(
             title = "NEWS JOURNAL",
@@ -68,39 +66,33 @@ fun HomePage(context: Context) {
             }
         )
 
-        MidlLine(Modifier.weight(1f))
-
-        BottomAppBar(
-            firstImage = painterResource(R.drawable.home_24),
-            secondImage = painterResource(R.drawable.star_24),
-            thirdImage = painterResource(R.drawable.collections_bookmark_24),
-            startImageClick = { Toast.makeText(context, "text", Toast.LENGTH_LONG).show() },
-            text1Image = "Home",
-            text2Image = "Favorite",
-            text3Image = "Tags"
-        )
-    }
-}
-
-@Composable
-fun MidlLine(modifier: Modifier) {
-    Box(
-        modifier = modifier
-            .fillMaxWidth()
-            .background(Color.White)
-            .wrapContentSize(Alignment.TopStart)
-            .verticalScroll(ScrollState(0))
-    ) {
-        Text(
-            text = stringResource(R.string.news),
-            fontSize = 24.sp,
+        LazyColumn(
+            state = rememberLazyListState(),
             modifier = Modifier
-                .padding(16.dp)
-                .clickable { }
-                .padding(bottom = 80.dp)
-        )
-    }
-}
+                .weight(1f)
+                .fillMaxHeight()
+        ) {
+            item {
+                Text(
+                    text = stringResource(R.string.news),
+                    fontSize = 24.sp,
+                    modifier = Modifier
+                        .padding(16.dp)
+                        .clickable { }
+                )
+            }
+        }
+                BottomAppBar(
+                    firstImage = painterResource(R.drawable.home_24),
+                    secondImage = painterResource(R.drawable.star_24),
+                    thirdImage = painterResource(R.drawable.collections_bookmark_24),
+                    startImageClick = { Toast.makeText(context, "text", Toast.LENGTH_LONG).show() },
+                    text1Image = "Home",
+                    text2Image = "Favorite",
+                    text3Image = "Tags"
+                )
+            }
+        }
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable

@@ -37,9 +37,10 @@ fun BottomAppBar(
             .fillMaxWidth()
             .height(80.dp)
             .background(defaultBackground)
-            .padding(vertical = 8.dp, horizontal = 16.dp),
+            .padding(vertical = 8.dp, horizontal = 24.dp),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.Top,
+
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally
