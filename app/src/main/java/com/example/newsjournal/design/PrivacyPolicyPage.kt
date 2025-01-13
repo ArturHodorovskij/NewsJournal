@@ -1,18 +1,18 @@
 package com.example.newsjournal.design
 
-import androidx.compose.foundation.ScrollState
+
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -30,16 +30,24 @@ fun PrivacyPolicyPage() {
             startImage = painterResource(R.drawable.reply_24),
             startImageClick = {}
         )
-        Text(
-            text = stringResource(R.string.privacy_policy),
-            fontSize = 18.sp,
-            fontWeight = FontWeight.SemiBold,
+        Separator()
+        LazyColumn(
+            state = rememberLazyListState(),
             modifier = Modifier
-                .padding(vertical = 16.dp, horizontal = 16.dp)
-                .verticalScroll(ScrollState(0))
-        )
+                .weight(1f)
+        ) {
+            item {
+                Text(
+                    text = stringResource(R.string.privacy_policy),
+                    fontSize = 16.sp,
+                    modifier = Modifier
+                        .padding(16.dp)
+                )
+            }
+        }
     }
 }
+
 
 
 @Preview(showBackground = true)

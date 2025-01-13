@@ -33,6 +33,7 @@ fun TagsPage() {
             startImageClick = {
             }
         )
+        Separator()
         LazyColumn(
             state = rememberLazyListState(),
             horizontalAlignment = Alignment.Start,
@@ -57,6 +58,7 @@ fun TagsPage() {
                 Separator()
             }
         }
+        Separator()
         BottomAppBar(
             firstImage = painterResource(R.drawable.home_24),
             secondImage = painterResource(R.drawable.collections_bookmark_24),

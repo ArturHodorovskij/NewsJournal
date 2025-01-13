@@ -1,7 +1,6 @@
 package com.example.newsjournal.design
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -19,7 +18,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.newsjournal.R
-import com.example.newsjournal.ui.theme.defaultBackground
 
 @Composable
 fun BottomAppBar(
@@ -36,7 +34,6 @@ fun BottomAppBar(
         modifier = Modifier
             .fillMaxWidth()
             .height(80.dp)
-            .background(defaultBackground)
             .padding(vertical = 8.dp, horizontal = 32.dp),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.Top,

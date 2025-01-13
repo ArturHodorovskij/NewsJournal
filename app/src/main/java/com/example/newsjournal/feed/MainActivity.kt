@@ -1,4 +1,5 @@
 package com.example.newsjournal.feed
+
 import android.content.Context
 import android.os.Bundle
 import android.widget.Toast
@@ -8,7 +9,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -25,6 +25,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.newsjournal.R
 import com.example.newsjournal.design.BottomAppBar
+import com.example.newsjournal.design.Separator
 import com.example.newsjournal.design.TopAppBar
 import com.example.newsjournal.ui.theme.NewsJournalTheme
 
@@ -61,12 +62,11 @@ fun HomePage(context: Context) {
                 Toast.makeText(context, "text", Toast.LENGTH_LONG).show()
             }
         )
-
+        Separator()
         LazyColumn(
             state = rememberLazyListState(),
             modifier = Modifier
                 .weight(1f)
-                .fillMaxHeight()
         ) {
             item {
                 Text(
@@ -78,6 +78,7 @@ fun HomePage(context: Context) {
                 )
             }
         }
+        Separator()
                 BottomAppBar(
                     firstImage = painterResource(R.drawable.home_24),
                     secondImage = painterResource(R.drawable.collections_bookmark_24),
