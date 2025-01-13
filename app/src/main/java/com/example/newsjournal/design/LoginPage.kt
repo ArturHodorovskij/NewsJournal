@@ -70,9 +70,7 @@ fun LoginPage() {
                     focusedContainerColor = Color.White,
                     focusedTextColor = Color(0xff222222)
                 ),
-
                 textStyle = TextStyle(fontSize = 16.sp),
-
                 placeholder = { Text(text = "Email") },
                 modifier = Modifier
                     .size(height = 56.dp, width = 240.dp)

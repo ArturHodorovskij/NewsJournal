@@ -35,7 +35,7 @@ fun PrivacyPolicyPage() {
             fontSize = 18.sp,
             fontWeight = FontWeight.SemiBold,
             modifier = Modifier
-                .padding(vertical = 16.dp, horizontal = 8.dp)
+                .padding(vertical = 16.dp, horizontal = 16.dp)
                 .verticalScroll(ScrollState(0))
         )
     }

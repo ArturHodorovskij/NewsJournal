@@ -71,14 +71,11 @@ fun ForgotPasswordPage() {
                     focusedContainerColor = Color.White,
                     focusedTextColor = Color(0xff222222)
                 ),
-
                 textStyle = TextStyle(fontSize = 16.sp),
-//че это за иморт такой ебаный тут ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
                 placeholder = { Text(text = "Email") },
                 modifier = Modifier
                     .size(height = 56.dp, width = 240.dp)
             )
-
         }
         Text(
             text = "The recovery code will be sent to your email address",

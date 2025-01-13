@@ -37,7 +37,7 @@ fun BottomAppBar(
             .fillMaxWidth()
             .height(80.dp)
             .background(defaultBackground)
-            .padding(vertical = 8.dp, horizontal = 24.dp),
+            .padding(vertical = 8.dp, horizontal = 32.dp),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.Top,
 
@@ -97,8 +97,8 @@ fun BottomAppBar(
 fun PrimaryBotAppbarPreview() {
     BottomAppBar(
         firstImage = painterResource(R.drawable.home_24),
-        secondImage = painterResource(R.drawable.star_24),
-        thirdImage = painterResource(R.drawable.collections_bookmark_24),
+        secondImage = painterResource(R.drawable.collections_bookmark_24),
+        thirdImage = painterResource(R.drawable.list_alt_24dp),
         startImageClick = {},
         text1Image = "Home",
         text2Image = "Favorite",

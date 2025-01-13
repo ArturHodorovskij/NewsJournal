@@ -5,15 +5,12 @@
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="PrimaryTopAppbarPreview">
-        <option name="selectionMode" value="DROPDOWN" />
-      </SelectionState>
       <SelectionState runConfigName="MainActivity (1)">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2025-01-12T17:20:18.214215900Z">
+        <DropdownSelection timestamp="2025-01-12T17:26:09.370378700Z">
           <Target type="DEFAULT_BOOT">
             <handle>
-              <DeviceId pluginId="PhysicalDevice" identifier="serial=MRSW6TJZ9XD6CYJ7" />
+              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\Artur\.android\avd\Android_15.avd" />
             </handle>
           </Target>
         </DropdownSelection>
@@ -30,10 +27,21 @@
         </DropdownSelection>
         <DialogSelection />
       </SelectionState>
-      <SelectionState runConfigName="PrivacyPolicyPreview">
+      <SelectionState runConfigName="TagsPagePreview">
+        <option name="selectionMode" value="DROPDOWN" />
+        <DropdownSelection timestamp="2025-01-13T18:33:26.260004900Z">
+          <Target type="DEFAULT_BOOT">
+            <handle>
+              <DeviceId pluginId="PhysicalDevice" identifier="serial=MRSW6TJZ9XD6CYJ7" />
+            </handle>
+          </Target>
+        </DropdownSelection>
+        <DialogSelection />
+      </SelectionState>
+      <SelectionState runConfigName="ForgotPasswordPagePreview">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="PrimaryContentLine">
+      <SelectionState runConfigName="NewPasswordPagePreview">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>

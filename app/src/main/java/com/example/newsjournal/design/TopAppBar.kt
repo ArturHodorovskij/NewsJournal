@@ -36,7 +36,7 @@ fun TopAppBar(
             .fillMaxWidth()
             .height(100.dp)
             .background(defaultBackground)
-            .padding(vertical = 8.dp, horizontal = 16.dp),
+            .padding(vertical = 8.dp, horizontal = 32.dp),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.Bottom
     ) {

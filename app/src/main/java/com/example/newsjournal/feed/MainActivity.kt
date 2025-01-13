@@ -1,12 +1,10 @@
 package com.example.newsjournal.feed
-
 import android.content.Context
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -20,7 +18,6 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -39,7 +36,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             NewsJournalTheme {
                 Surface(
-//                    modifier = Modifier.fillMaxSize(),
+                   modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background,
 
                     ) {
@@ -52,7 +49,6 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-
 fun HomePage(context: Context) {
     Column(
         verticalArrangement = Arrangement.SpaceBetween,
@@ -84,8 +80,8 @@ fun HomePage(context: Context) {
         }
                 BottomAppBar(
                     firstImage = painterResource(R.drawable.home_24),
-                    secondImage = painterResource(R.drawable.star_24),
-                    thirdImage = painterResource(R.drawable.collections_bookmark_24),
+                    secondImage = painterResource(R.drawable.collections_bookmark_24),
+                    thirdImage = painterResource(R.drawable.list_alt_24dp),
                     startImageClick = { Toast.makeText(context, "text", Toast.LENGTH_LONG).show() },
                     text1Image = "Home",
                     text2Image = "Favorite",
