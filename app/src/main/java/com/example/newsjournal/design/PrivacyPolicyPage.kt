@@ -16,10 +16,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.newsjournal.R
 
 @Composable
-fun PrivacyPolicyPage() {
+fun PrivacyPolicyPage(navController: NavController) {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Top,
@@ -28,7 +30,7 @@ fun PrivacyPolicyPage() {
         TopAppBar(
             title = "Privacy policy",
             startImage = painterResource(R.drawable.reply_24),
-            startImageClick = {}
+            startImageClick = {navController.navigate("RegistrationPage")}
         )
         Separator()
         LazyColumn(
@@ -53,5 +55,5 @@ fun PrivacyPolicyPage() {
 @Preview(showBackground = true)
 @Composable
 fun PrivacyPolicyPreview() {
-    PrivacyPolicyPage()
+    PrivacyPolicyPage(navController = rememberNavController())
 }

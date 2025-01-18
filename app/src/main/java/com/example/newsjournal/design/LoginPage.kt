@@ -25,11 +25,13 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.newsjournal.R
 import com.example.newsjournal.ui.theme.defaultBackground
 
 @Composable
-fun LoginPage() {
+fun LoginPage(navController: NavController) {
     val useremail = remember { mutableStateOf("") }
     val userpassword = remember { mutableStateOf("") }
     Column(
@@ -41,7 +43,7 @@ fun LoginPage() {
         TopAppBar(
             title = "Log in",
             startImage = painterResource(R.drawable.reply_24),
-            startImageClick = {}
+            startImageClick = {navController.navigate("HomePage")}
         )
         Separator()
         Text(
@@ -65,7 +67,7 @@ fun LoginPage() {
         InputWindowInformation("Password",userpassword )
 
         TextButton(
-            onClick = {},
+            onClick = {navController.navigate("PasswordRecoveryPage")},
             modifier = Modifier
 
         ) {
@@ -77,7 +79,7 @@ fun LoginPage() {
             )
         }
 
-        ActionButton("Log in")
+        ActionButton("Log in") { navController.navigate("HomePage") }
 
         Button(
             onClick = {},
@@ -111,16 +113,16 @@ fun LoginPage() {
                     .padding(horizontal = 8.dp)
             )
         }
+        Separator()
 
         Text(
             text = "Don't have NJ account?",
             fontSize = 20.sp,
             fontWeight = FontWeight.Normal,
-            textDecoration = TextDecoration.Underline,
             modifier = Modifier
                 .padding(vertical = 16.dp)
         )
-        ActionButton("Create Account")
+        ActionButton("Create Account"){ navController.navigate("RegistrationPage") }
     }
 }
 
@@ -128,5 +130,5 @@ fun LoginPage() {
 @Preview(showBackground = true)
 @Composable
 fun LoginPagePreview() {
-    LoginPage()
+    LoginPage(navController = rememberNavController())
 }

@@ -16,10 +16,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.newsjournal.R
 
 @Composable
-fun ForgotPasswordPage() {
+fun PasswordRecoveryPage(navController: NavController) {
     val useremail = remember { mutableStateOf("") }
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -29,7 +31,7 @@ fun ForgotPasswordPage() {
         TopAppBar(
             title = "Password recovery",
             startImage = painterResource(R.drawable.reply_24),
-            startImageClick = {}
+            startImageClick = {navController.navigate("LoginPage")}
         )
 
         Separator()
@@ -52,7 +54,7 @@ fun ForgotPasswordPage() {
                 .padding(16.dp)
         )
 
-        ActionButton("Send code")
+        ActionButton("Send code"){navController.navigate("NewPasswordPage")}
     }
 }
 
@@ -60,5 +62,5 @@ fun ForgotPasswordPage() {
 @Preview(showBackground = true)
 @Composable
 fun ForgotPasswordPagePreview() {
-    ForgotPasswordPage()
+    PasswordRecoveryPage(navController = rememberNavController())
 }

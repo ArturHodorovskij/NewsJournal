@@ -14,9 +14,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun ActionButton(textbutton:String){
+fun ActionButton(textbutton:String, onClick:()->Unit){
     Button(
-        onClick = {},
+        onClick = onClick,
         shape = RoundedCornerShape(15.dp),
         border = BorderStroke(3.dp, Color.DarkGray),
         colors = ButtonDefaults.buttonColors(
@@ -34,5 +34,5 @@ fun ActionButton(textbutton:String){
 @Composable
 
 fun ActionButtonPreview(){
-    ActionButton("хуй")
+    ActionButton("хуй", onClick = {})
 }

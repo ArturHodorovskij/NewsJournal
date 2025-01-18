@@ -18,13 +18,16 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.newsjournal.R
 
 @Composable
-fun NewPasswordPage() {
+fun NewPasswordPage(navController: NavController) {
 
     val useremail = remember { mutableStateOf("") }
     val userpassword = remember { mutableStateOf("") }
+    val verificationcode = remember{ mutableStateOf("") }
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -33,7 +36,7 @@ fun NewPasswordPage() {
     ) {
         TopAppBar(title = "Change password",
             startImage = painterResource(R.drawable.reply_24),
-            startImageClick = {}
+            startImageClick = {navController.navigate("PasswordRecoveryPage")}
         )
 
         Separator()
@@ -48,7 +51,16 @@ fun NewPasswordPage() {
         InputWindowInformation("Email",useremail )
 
         Text(
-            text = "Enter the verification code",
+            text = "Enter verification code",
+            fontSize = 14.sp,
+            fontWeight = FontWeight.Normal,
+            modifier = Modifier.padding(vertical = 16.dp)
+        )
+
+        InputWindowInformation("Code",verificationcode )
+
+        Text(
+            text = "Enter new password",
             fontSize = 14.sp,
             fontWeight = FontWeight.Normal,
             modifier = Modifier.padding(vertical = 16.dp)
@@ -57,7 +69,7 @@ fun NewPasswordPage() {
         InputWindowInformation("Password",userpassword )
 
         Text(
-            text = "Create new password",
+            text = "Repeat new password",
             fontSize = 14.sp,
             fontWeight = FontWeight.Normal,
             modifier = Modifier.padding(vertical = 16.dp)
@@ -67,7 +79,7 @@ fun NewPasswordPage() {
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        ActionButton("Continue")
+        ActionButton("Continue") { navController.navigate("HomePage") }
     }
 }
 
@@ -75,5 +87,5 @@ fun NewPasswordPage() {
 @Preview(showBackground = true)
 @Composable
 fun NewPasswordPagePreview() {
-    NewPasswordPage()
+    NewPasswordPage(navController = rememberNavController())
 }

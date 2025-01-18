@@ -2,61 +2,49 @@ package com.example.newsjournal.design
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+
 import com.example.newsjournal.R
 
 @Composable
-fun TagsPage(navController: NavController) {
+fun FavoritePage(navController: NavController) {
     Column(
-        modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.SpaceBetween
-
+        verticalArrangement = Arrangement.SpaceBetween,
+        modifier = Modifier.fillMaxSize()
     ) {
         TopAppBar(
-            title = "Tags",
+            title = "Favorite",
             startImage = painterResource(R.drawable.reply_24),
             startImageClick = {navController.navigate("HomePage")}
         )
         Separator()
         LazyColumn(
             state = rememberLazyListState(),
-            horizontalAlignment = Alignment.Start,
             modifier = Modifier
                 .weight(1f)
-                .fillMaxSize()
-                .padding(start = 8.dp, end = 8.dp)
         ) {
-            items(TagsName().tagsTitle) { item ->
-                Box(
+            item {
+                Text(
+                    text = stringResource(R.string.news),
+                    fontSize = 24.sp,
                     modifier = Modifier
-                    .fillMaxWidth()
-                    .clickable { }
-                ) {
-                    Text(
-                        text = item,
-                        fontSize = 24.sp,
-                        modifier = Modifier
-                            .padding(start = 16.dp, top = 8.dp, bottom = 8.dp)
-                    )
-                }
-                Separator()
+                        .padding(16.dp)
+                        .clickable { }
+                )
             }
         }
         Separator()
@@ -64,19 +52,18 @@ fun TagsPage(navController: NavController) {
             firstImage = painterResource(R.drawable.home_24),
             secondImage = painterResource(R.drawable.collections_bookmark_24),
             thirdImage = painterResource(R.drawable.list_alt_24dp),
-            navController = navController,
             text1Image = "Home",
             text2Image = "Favorite",
-            text3Image = "Tags"
+            text3Image = "Tags",
+            navController = navController
 
         )
     }
 }
 
-
 @Preview(showBackground = true)
 @Composable
-fun TagsPagePreview() {
-    TagsPage(navController = rememberNavController()
+fun FavoritePagePreview(){
+    FavoritePage(navController = rememberNavController()
     )
 }

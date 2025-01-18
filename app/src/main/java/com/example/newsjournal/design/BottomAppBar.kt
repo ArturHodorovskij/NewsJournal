@@ -17,17 +17,19 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.newsjournal.R
 
+
 @Composable
-fun BottomAppBar(
+fun BottomAppBar(navController:NavController,
     firstImage: Painter? = null,
     secondImage: Painter? = null,
     thirdImage: Painter? = null,
     text1Image: String,
     text2Image: String,
-    text3Image: String,
-    startImageClick: () -> Unit
+    text3Image: String
 
 ) {
     Row(
@@ -38,15 +40,16 @@ fun BottomAppBar(
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.Top,
 
-    ) {
+        ) {
         Column(
-            horizontalAlignment = Alignment.CenterHorizontally
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier
+                .clickable {  navController.navigate("HomePage")}
         ) {
             if (firstImage != null) {
                 Image(
                     modifier = Modifier
-                        .size(32.dp)
-                        .clickable { startImageClick() },
+                        .size(32.dp),
                     painter = firstImage,
                     contentDescription = ""
                 )
@@ -56,13 +59,14 @@ fun BottomAppBar(
             }
         }
         Column(
-            horizontalAlignment = Alignment.CenterHorizontally
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier
+                .clickable { navController.navigate("FavoritePage")}
         ) {
             if (secondImage != null) {
                 Image(
                     modifier = Modifier
-                        .size(32.dp)
-                        .clickable { startImageClick() },
+                        .size(32.dp),
                     painter = secondImage,
                     contentDescription = ""
                 )
@@ -71,12 +75,15 @@ fun BottomAppBar(
                 )
             }
         }
-        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier
+                .clickable {navController.navigate("TagsPage") }
+        ) {
             if (thirdImage != null) {
                 Image(
                     modifier = Modifier
-                        .size(32.dp)
-                        .clickable { startImageClick() },
+                        .size(32.dp),
                     painter = thirdImage,
                     contentDescription = ""
                 )
@@ -96,9 +103,10 @@ fun PrimaryBotAppbarPreview() {
         firstImage = painterResource(R.drawable.home_24),
         secondImage = painterResource(R.drawable.collections_bookmark_24),
         thirdImage = painterResource(R.drawable.list_alt_24dp),
-        startImageClick = {},
         text1Image = "Home",
         text2Image = "Favorite",
-        text3Image = "Tags"
+        text3Image = "Tags",
+        navController = rememberNavController()
+
     )
 }

@@ -21,10 +21,12 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.newsjournal.R
 
 @Composable
-fun RegistrationPage() {
+fun RegistrationPage(navController: NavController) {
     val useremail = remember { mutableStateOf("") }
     val userpassword = remember { mutableStateOf("") }
     Column(
@@ -35,7 +37,7 @@ fun RegistrationPage() {
         TopAppBar(
             title = "Register",
             startImage = painterResource(R.drawable.reply_24),
-            startImageClick = {}
+            startImageClick = {navController.navigate("LoginPage")}
         )
         Separator()
         Text(
@@ -55,7 +57,7 @@ fun RegistrationPage() {
         )
         InputWindowInformation("Password",userpassword )
         TextButton(
-            onClick = {},
+            onClick = {navController.navigate("PrivacyPolicyPage")},
             modifier = Modifier
                 .padding(16.dp)
                 .wrapContentSize(Alignment.Center)
@@ -68,7 +70,7 @@ fun RegistrationPage() {
                 textAlign = TextAlign.Center
             )
         }
-        ActionButton("Create Account")
+        ActionButton("Create Account"){navController.navigate("HomePage")}
     }
 }
 
@@ -76,5 +78,5 @@ fun RegistrationPage() {
 @Preview(showBackground = true)
 @Composable
 fun RegistrationPagePreview() {
-    RegistrationPage()
+    RegistrationPage(navController = rememberNavController())
 }
