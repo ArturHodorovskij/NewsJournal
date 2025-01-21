@@ -21,7 +21,8 @@ import com.example.newsjournal.ui.theme.defaultBackground
 @Composable
 fun InputWindowInformation(
     textInside: String,
-    userputdata: MutableState<String> = remember { mutableStateOf("") }
+    userPutData: MutableState<String> = remember { mutableStateOf("") }
+    
 ) {
     Box(
         modifier = Modifier
@@ -29,8 +30,8 @@ fun InputWindowInformation(
             .size(height = 56.dp, width = 240.dp)
     ) {
         TextField(
-            value = userputdata.value,
-            onValueChange = { newText -> userputdata.value = newText },
+            value = userPutData.value,
+            onValueChange = { newText -> userPutData.value = newText },
             singleLine = true,
             colors = TextFieldDefaults.colors(
                 unfocusedContainerColor = defaultBackground,

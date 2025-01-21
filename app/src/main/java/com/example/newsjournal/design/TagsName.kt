@@ -1,6 +1,6 @@
 package com.example.newsjournal.design
 
-class TagsName() {
+class TagsName {
     val tagsTitle =
         listOf(
             "Политика",

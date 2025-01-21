@@ -22,6 +22,7 @@ import com.example.newsjournal.R
 
 @Composable
 fun FavoritePage(navController: NavController) {
+
     Column(
         verticalArrangement = Arrangement.SpaceBetween,
         modifier = Modifier.fillMaxSize()

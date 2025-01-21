@@ -30,7 +30,6 @@ fun BottomAppBar(navController:NavController,
     text1Image: String,
     text2Image: String,
     text3Image: String
-
 ) {
     Row(
         modifier = Modifier
@@ -53,11 +52,13 @@ fun BottomAppBar(navController:NavController,
                     painter = firstImage,
                     contentDescription = ""
                 )
+
                 Text(
                     text = text1Image
                 )
             }
         }
+
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
@@ -75,6 +76,7 @@ fun BottomAppBar(navController:NavController,
                 )
             }
         }
+
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
@@ -88,13 +90,13 @@ fun BottomAppBar(navController:NavController,
                     contentDescription = ""
                 )
             }
+
             Text(
                 text = text3Image
             )
         }
     }
 }
-
 
 @Preview(showBackground = true)
 @Composable

@@ -24,10 +24,10 @@ import com.example.newsjournal.R
 
 @Composable
 fun NewPasswordPage(navController: NavController) {
-
-    val useremail = remember { mutableStateOf("") }
-    val userpassword = remember { mutableStateOf("") }
-    val verificationcode = remember{ mutableStateOf("") }
+    
+    val userEmail = remember { mutableStateOf("") }
+    val userPassword = remember { mutableStateOf("") }
+    val verificationCode = remember{ mutableStateOf("") }
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -48,7 +48,7 @@ fun NewPasswordPage(navController: NavController) {
             modifier = Modifier.padding(vertical = 16.dp)
         )
 
-        InputWindowInformation("Email",useremail )
+        InputWindowInformation("Email",userEmail )
 
         Text(
             text = "Enter verification code",
@@ -57,7 +57,7 @@ fun NewPasswordPage(navController: NavController) {
             modifier = Modifier.padding(vertical = 16.dp)
         )
 
-        InputWindowInformation("Code",verificationcode )
+        InputWindowInformation("Code",verificationCode )
 
         Text(
             text = "Enter new password",
@@ -66,7 +66,7 @@ fun NewPasswordPage(navController: NavController) {
             modifier = Modifier.padding(vertical = 16.dp)
         )
 
-        InputWindowInformation("Password",userpassword )
+        InputWindowInformation("Password",userPassword )
 
         Text(
             text = "Repeat new password",
@@ -75,7 +75,7 @@ fun NewPasswordPage(navController: NavController) {
             modifier = Modifier.padding(vertical = 16.dp)
         )
 
-        InputWindowInformation("Password",userpassword )
+        InputWindowInformation("Password",userPassword )
 
         Spacer(modifier = Modifier.height(16.dp))
 

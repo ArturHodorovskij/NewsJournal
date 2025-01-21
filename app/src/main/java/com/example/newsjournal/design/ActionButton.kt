@@ -14,7 +14,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun ActionButton(textbutton:String, onClick:()->Unit){
+fun ActionButton(textButton:String, onClick:()->Unit){
+
     Button(
         onClick = onClick,
         shape = RoundedCornerShape(15.dp),
@@ -26,7 +27,8 @@ fun ActionButton(textbutton:String, onClick:()->Unit){
         modifier = Modifier
             .size(height = 48.dp, width = 240.dp)
     ) {
-        Text(textbutton, fontSize = 16.sp)
+
+        Text(textButton, fontSize = 16.sp)
     }
 }
 

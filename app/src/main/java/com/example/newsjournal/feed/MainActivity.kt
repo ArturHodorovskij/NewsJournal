@@ -45,7 +45,6 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-
             val navController = rememberNavController()
             NewsJournalTheme {
                 }
@@ -57,12 +56,11 @@ class MainActivity : ComponentActivity() {
                         composable("HomePage") { HomePage(navController) }
                         composable("FavoritePage") { FavoritePage(navController) }
                         composable("TagsPage") { TagsPage(navController) }
-                        composable( "LoginPage") { LoginPage(navController) }
+                        composable("LoginPage") { LoginPage(navController) }
                         composable("PasswordRecoveryPage"){ PasswordRecoveryPage(navController) }
                         composable("RegistrationPage") { RegistrationPage(navController) }
                         composable("PrivacyPolicyPage"){ PrivacyPolicyPage(navController) }
                         composable("NewPasswordPage") { NewPasswordPage(navController) }
-
                 }
             }
         }

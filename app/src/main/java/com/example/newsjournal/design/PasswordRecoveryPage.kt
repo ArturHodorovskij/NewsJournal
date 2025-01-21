@@ -22,7 +22,7 @@ import com.example.newsjournal.R
 
 @Composable
 fun PasswordRecoveryPage(navController: NavController) {
-    val useremail = remember { mutableStateOf("") }
+    val userEmail = remember { mutableStateOf("") }
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Top,
@@ -44,7 +44,7 @@ fun PasswordRecoveryPage(navController: NavController) {
                 .padding(vertical = 16.dp)
         )
 
-        InputWindowInformation("Email",useremail )
+        InputWindowInformation("Email",userEmail )
 
         Text(
             text = "The recovery code will be sent to your email address",

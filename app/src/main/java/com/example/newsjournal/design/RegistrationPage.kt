@@ -27,8 +27,8 @@ import com.example.newsjournal.R
 
 @Composable
 fun RegistrationPage(navController: NavController) {
-    val useremail = remember { mutableStateOf("") }
-    val userpassword = remember { mutableStateOf("") }
+    val userEmail = remember { mutableStateOf("") }
+    val userPassword = remember { mutableStateOf("") }
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Top,
@@ -47,7 +47,7 @@ fun RegistrationPage(navController: NavController) {
             modifier = Modifier
                 .padding(vertical = 16.dp)
         )
-        InputWindowInformation("Email",useremail )
+        InputWindowInformation("Email",userEmail )
         Text(
             text = "Create password",
             fontSize = 14.sp,
@@ -55,7 +55,7 @@ fun RegistrationPage(navController: NavController) {
             modifier = Modifier
                 .padding(vertical = 16.dp)
         )
-        InputWindowInformation("Password",userpassword )
+        InputWindowInformation("Password",userPassword )
         TextButton(
             onClick = {navController.navigate("PrivacyPolicyPage")},
             modifier = Modifier

@@ -32,8 +32,8 @@ import com.example.newsjournal.ui.theme.defaultBackground
 
 @Composable
 fun LoginPage(navController: NavController) {
-    val useremail = remember { mutableStateOf("") }
-    val userpassword = remember { mutableStateOf("") }
+    val userEmail = remember { mutableStateOf("") }
+    val userPassword = remember { mutableStateOf("") }
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Top,
@@ -54,7 +54,7 @@ fun LoginPage(navController: NavController) {
                 .padding(vertical = 16.dp)
         )
 
-        InputWindowInformation("Email",useremail )
+        InputWindowInformation("Email",userEmail )
 
         Text(
             text = "Enter password",
@@ -64,7 +64,7 @@ fun LoginPage(navController: NavController) {
                 .padding(vertical = 16.dp)
         )
 
-        InputWindowInformation("Password",userpassword )
+        InputWindowInformation("Password",userPassword )
 
         TextButton(
             onClick = {navController.navigate("PasswordRecoveryPage")},
