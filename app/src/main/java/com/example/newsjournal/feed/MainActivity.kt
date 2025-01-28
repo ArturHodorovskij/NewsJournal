@@ -1,6 +1,7 @@
 package com.example.newsjournal.feed
 
 
+import android.content.Context
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -105,6 +106,11 @@ fun HomePage(navController:NavController) {
             navController = navController
         )
     }
+}
+
+
+private fun getResult(context:Context){
+
 }
 
 @Preview(showBackground = true, showSystemUi = true)

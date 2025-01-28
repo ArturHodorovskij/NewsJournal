@@ -21,7 +21,6 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.newsjournal.R
 
-
 @Composable
 fun BottomAppBar(navController:NavController,
     firstImage: Painter? = null,
@@ -43,7 +42,7 @@ fun BottomAppBar(navController:NavController,
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
-                .clickable {  navController.navigate("HomePage")}
+                .clickable { navController.navigate("HomePage")}
         ) {
             if (firstImage != null) {
                 Image(
