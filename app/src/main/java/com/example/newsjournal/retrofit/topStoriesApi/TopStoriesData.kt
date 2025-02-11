@@ -1,4 +1,4 @@
-package com.example.newsjournal.design
+package com.example.newsjournal.retrofit.topStoriesApi
 
 data class TopStoriesResponse(
     val status: String,
