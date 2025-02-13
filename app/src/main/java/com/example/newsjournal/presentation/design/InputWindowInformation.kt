@@ -1,4 +1,4 @@
-package com.example.newsjournal.design
+package com.example.newsjournal.presentation.design
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
@@ -16,7 +16,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.newsjournal.ui.theme.defaultBackground
+import com.example.newsjournal.presentation.ui.theme.defaultBackground
 
 @Composable
 fun InputWindowInformation(

@@ -1,4 +1,4 @@
-package com.example.newsjournal.design
+package com.example.newsjournal.presentation.design
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable

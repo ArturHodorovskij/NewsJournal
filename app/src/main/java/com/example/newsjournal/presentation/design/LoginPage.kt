@@ -1,4 +1,4 @@
-package com.example.newsjournal.design
+package com.example.newsjournal.presentation.design
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -28,7 +28,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.newsjournal.R
-import com.example.newsjournal.ui.theme.defaultBackground
+import com.example.newsjournal.presentation.ui.theme.defaultBackground
 
 @Composable
 fun LoginPage(navController: NavController) {

@@ -1,15 +1,19 @@
-package com.example.newsjournal.retrofit.topStoriesApi
+package com.example.newsjournal.data.retrofit.topStoriesApi
+
+import com.google.gson.annotations.SerializedName
 
 data class TopStoriesResponse(
-    val status: String,
+    @SerializedName("status") val status: String,
     val copyright: String,
     val section: String,
     val last_updated: String,
     val num_results: Int,
     val results: List<Article>
+
+    // TODO Зарефакторить
 )
 
-data class Article(
+data class Article( // отдельные файлы
     val section: String,
     val subsection: String?,
     val title: String,

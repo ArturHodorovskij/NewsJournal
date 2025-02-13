@@ -1,4 +1,4 @@
-package com.example.newsjournal.design
+package com.example.newsjournal.presentation.design
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -17,20 +17,18 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-
 import com.example.newsjournal.R
 
 @Composable
-fun FavoritePage(navController: NavController) {
-
+fun HomePage(navController: NavController) {
     Column(
         verticalArrangement = Arrangement.SpaceBetween,
         modifier = Modifier.fillMaxSize()
     ) {
         TopAppBar(
-            title = "Favorite",
-            startImage = painterResource(R.drawable.reply_24),
-            startImageClick = {navController.navigate("HomePage")}
+            title = "NEWS JOURNAL",
+            startImage = painterResource(R.drawable.person_24),
+            startImageClick = {navController.navigate("LoginPage")}
         )
         Separator()
         LazyColumn(
@@ -57,14 +55,13 @@ fun FavoritePage(navController: NavController) {
             text2Image = "Favorite",
             text3Image = "Tags",
             navController = navController
-
         )
     }
 }
 
-@Preview(showBackground = true)
+
+@Preview(showBackground = true, showSystemUi = true)
 @Composable
-fun FavoritePagePreview(){
-    FavoritePage(navController = rememberNavController()
-    )
+fun GreetingPreview2() {
+    HomePage(navController = rememberNavController())
 }

@@ -1,9 +1,11 @@
-package com.example.newsjournal.design
+package com.example.newsjournal.presentation.design
 
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -21,17 +23,20 @@ import androidx.navigation.compose.rememberNavController
 import com.example.newsjournal.R
 
 @Composable
-fun PasswordRecoveryPage(navController: NavController) {
+fun NewPasswordPage(navController: NavController) {
+    
     val userEmail = remember { mutableStateOf("") }
+    val userPassword = remember { mutableStateOf("") }
+    val verificationCode = remember{ mutableStateOf("") }
+
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        TopAppBar(
-            title = "Password recovery",
+        TopAppBar(title = "Change password",
             startImage = painterResource(R.drawable.reply_24),
-            startImageClick = {navController.navigate("LoginPage")}
+            startImageClick = {navController.navigate("PasswordRecoveryPage")}
         )
 
         Separator()
@@ -40,27 +45,47 @@ fun PasswordRecoveryPage(navController: NavController) {
             text = "Enter email",
             fontSize = 14.sp,
             fontWeight = FontWeight.Normal,
-            modifier = Modifier
-                .padding(vertical = 16.dp)
+            modifier = Modifier.padding(vertical = 16.dp)
         )
 
         InputWindowInformation("Email",userEmail )
 
         Text(
-            text = "The recovery code will be sent to your email address",
+            text = "Enter verification code",
             fontSize = 14.sp,
             fontWeight = FontWeight.Normal,
-            modifier = Modifier
-                .padding(16.dp)
+            modifier = Modifier.padding(vertical = 16.dp)
         )
 
-        ActionButton("Send code"){navController.navigate("NewPasswordPage")}
+        InputWindowInformation("Code",verificationCode )
+
+        Text(
+            text = "Enter new password",
+            fontSize = 14.sp,
+            fontWeight = FontWeight.Normal,
+            modifier = Modifier.padding(vertical = 16.dp)
+        )
+
+        InputWindowInformation("Password",userPassword )
+
+        Text(
+            text = "Repeat new password",
+            fontSize = 14.sp,
+            fontWeight = FontWeight.Normal,
+            modifier = Modifier.padding(vertical = 16.dp)
+        )
+
+        InputWindowInformation("Password",userPassword )
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        ActionButton("Continue") { navController.navigate("HomePage") }
     }
 }
 
 
 @Preview(showBackground = true)
 @Composable
-fun ForgotPasswordPagePreview() {
-    PasswordRecoveryPage(navController = rememberNavController())
+fun NewPasswordPagePreview() {
+    NewPasswordPage(navController = rememberNavController())
 }
