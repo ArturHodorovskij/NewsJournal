@@ -1,6 +1,5 @@
 package com.example.newsjournal.data.retrofit.topStoriesApi
 
-import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -10,5 +9,5 @@ interface TopStoriesApi {
     fun getTopStories(
         @Path("section") section: String,   // Параметр для раздела (например, "arts")
         @Query("api-key") apiKey: String    // Параметр для API-ключа
-    ): Call<TopStoriesResponse>            // Возвращаем тип данных, с которым будем работать
+    ): TopStoriesResponse?      // Возвращаем тип данных, с которым будем работать
 }

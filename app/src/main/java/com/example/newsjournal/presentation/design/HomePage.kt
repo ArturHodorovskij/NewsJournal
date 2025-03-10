@@ -1,26 +1,27 @@
 package com.example.newsjournal.presentation.design
 
-import androidx.compose.foundation.clickable
+
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.newsjournal.R
+import com.example.newsjournal.data.retrofit.topStoriesApi.Article
+import com.example.newsjournal.data.retrofit.topStoriesApi.TopStoriesRepository
+import com.example.newsjournal.data.retrofit.topStoriesApi.TopStoriesViewModel
+
 
 @Composable
-fun HomePage(navController: NavController) {
+fun HomePage(navController: NavController, tsv: TopStoriesViewModel = viewModel() ) {
+
+
     Column(
         verticalArrangement = Arrangement.SpaceBetween,
         modifier = Modifier.fillMaxSize()
@@ -31,21 +32,7 @@ fun HomePage(navController: NavController) {
             startImageClick = {navController.navigate("LoginPage")}
         )
         Separator()
-        LazyColumn(
-            state = rememberLazyListState(),
-            modifier = Modifier
-                .weight(1f)
-        ) {
-            item {
-                Text(
-                    text = stringResource(R.string.news),
-                    fontSize = 24.sp,
-                    modifier = Modifier
-                        .padding(16.dp)
-                        .clickable { }
-                )
-            }
-        }
+        ScrollContentWindow(articles = tsv.storiesResponse)
         Separator()
         BottomAppBar(
             firstImage = painterResource(R.drawable.home_24),
@@ -58,6 +45,7 @@ fun HomePage(navController: NavController) {
         )
     }
 }
+
 
 
 @Preview(showBackground = true, showSystemUi = true)
