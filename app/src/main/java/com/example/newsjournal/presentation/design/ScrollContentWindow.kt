@@ -23,7 +23,7 @@ fun ScrollContentWindow(articles: LiveData<TopStoriesResponse?>) {
         modifier = Modifier
 
     ) {
-        items(articles) {art->
+        items(articles) {item->
             Column(
                 verticalArrangement = Arrangement.Top,
                 modifier = Modifier
