@@ -1,22 +1,16 @@
 package com.example.newsjournal.presentation.feed
 
-
-
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.newsjournal.data.retrofit.topStoriesApi.TopStoriesRepository
-import com.example.newsjournal.data.retrofit.topStoriesApi.TopStoriesViewModel
 import com.example.newsjournal.presentation.design.FavoritePage
 import com.example.newsjournal.presentation.design.HomePage
 import com.example.newsjournal.presentation.design.PasswordRecoveryPage
@@ -27,10 +21,7 @@ import com.example.newsjournal.presentation.design.RegistrationPage
 import com.example.newsjournal.presentation.design.TagsPage
 import com.example.newsjournal.presentation.ui.theme.NewsJournalTheme
 
-
-
 class MainActivity : ComponentActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -54,20 +45,5 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
-
     }
 }
-
-
-//data class huj(val title: String, val abstract: String)
-//   val repository = TopStoriesRepository()
-//        val section = "home"
-//        lifecycleScope.launch {
-//            val topStoriesResponse = repository.getTopStories(section)  // Асинхронный запрос
-//            topStoriesResponse?.let {
-//                // Обработка полученных данных
-//                it.results.forEach { article ->
-//                  fun huj(title: String = article.title, abstact: String = article.abstract) {}
-//                }
-//            }
-//        } ///// че делать то?)

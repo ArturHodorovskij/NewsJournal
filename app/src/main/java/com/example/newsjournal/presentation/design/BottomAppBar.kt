@@ -30,6 +30,7 @@ fun BottomAppBar(navController:NavController,
     text2Image: String,
     text3Image: String
 ) {
+
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -37,14 +38,15 @@ fun BottomAppBar(navController:NavController,
             .padding(vertical = 8.dp, horizontal = 32.dp),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.Top,
-
         ) {
+
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
                 .clickable { navController.navigate("HomePage")}
         ) {
             if (firstImage != null) {
+
                 Image(
                     modifier = Modifier
                         .size(32.dp),

@@ -1,4 +1,4 @@
-package com.example.newsjournal.data.retrofit.topStoriesApi
+package com.example.newsjournal.domain
 
 import com.google.gson.annotations.SerializedName
 

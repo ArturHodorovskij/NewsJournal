@@ -5,6 +5,8 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -13,15 +15,17 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.newsjournal.R
-import com.example.newsjournal.data.retrofit.topStoriesApi.Article
-import com.example.newsjournal.data.retrofit.topStoriesApi.TopStoriesRepository
 import com.example.newsjournal.data.retrofit.topStoriesApi.TopStoriesViewModel
 
 
 @Composable
-fun HomePage(navController: NavController, tsv: TopStoriesViewModel = viewModel() ) {
+fun HomePage(navController: NavController, viewModel: TopStoriesViewModel = viewModel() ) {
 
+    val state by viewModel.topStoriesResponse.observeAsState()
 
+    LaunchedEffect(Unit) {
+        viewModel.load()
+    }
     Column(
         verticalArrangement = Arrangement.SpaceBetween,
         modifier = Modifier.fillMaxSize()
@@ -32,7 +36,7 @@ fun HomePage(navController: NavController, tsv: TopStoriesViewModel = viewModel(
             startImageClick = {navController.navigate("LoginPage")}
         )
         Separator()
-        ScrollContentWindow(articles = tsv.storiesResponse)
+        state?.let { ScrollContentWindow(topStoriesResponse = it) }
         Separator()
         BottomAppBar(
             firstImage = painterResource(R.drawable.home_24),

@@ -21,8 +21,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.newsjournal.R
-import com.example.newsjournal.data.retrofit.topStoriesApi.TopStoriesRepository
-
+import com.example.newsjournal.domain.NewsTag
 
 @Composable
 fun TagsPage(navController: NavController) {
@@ -81,9 +80,6 @@ fun TagsPage(navController: NavController) {
 
 fun getTags(): List<NewsTag> = listOf(NewsTag("arts"), NewsTag("world"), NewsTag("food"))
 
-suspend fun getArts(tag: String) {
-    TopStoriesRepository().getTopStories(tag)
-}
 
 @Preview(showBackground = true)
 @Composable

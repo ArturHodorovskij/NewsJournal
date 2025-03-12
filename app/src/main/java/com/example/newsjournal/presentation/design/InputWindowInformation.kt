@@ -45,7 +45,6 @@ fun InputWindowInformation(
                 .size(height = 56.dp, width = 240.dp)
         )
     }
-
 }
 
 

@@ -1,4 +1,4 @@
-package com.example.newsjournal.presentation.design
+package com.example.newsjournal.domain
 
 enum class TagsName {
     ARTS,
