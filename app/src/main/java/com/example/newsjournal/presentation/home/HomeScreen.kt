@@ -1,6 +1,5 @@
 package com.example.newsjournal.presentation.home
 
-
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -23,20 +22,18 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.newsjournal.R
-import com.example.newsjournal.presentation.design.BottomAppBar
 import com.example.newsjournal.presentation.design.Separator
 import com.example.newsjournal.presentation.design.TopAppBar
-import com.example.newsjournal.presentation.design.TopStoriesViewModel
-
+import com.example.newsjournal.presentation.design.bottomappbar.BottomAppBar
 
 @Composable
-fun HomeScreen(navController: NavController, viewModel: TopStoriesViewModel = viewModel()) {
-
+fun HomeScreen(navController: NavController, viewModel: HomeViewModel = viewModel()) {
     val state by viewModel.topStoriesResponse.observeAsState()
 
     LaunchedEffect(Unit) {
         viewModel.load()
     }
+
     Column(
         verticalArrangement = Arrangement.SpaceBetween,
         modifier = Modifier.fillMaxSize()
@@ -94,17 +91,10 @@ fun HomeScreen(navController: NavController, viewModel: TopStoriesViewModel = vi
         Separator()
 
         BottomAppBar(
-            firstImage = painterResource(R.drawable.home_24),
-            secondImage = painterResource(R.drawable.collections_bookmark_24),
-            thirdImage = painterResource(R.drawable.list_alt_24dp),
-            text1Image = "Home",
-            text2Image = "Favorite",
-            text3Image = "Tags",
             navController = navController
         )
     }
 }
-
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable

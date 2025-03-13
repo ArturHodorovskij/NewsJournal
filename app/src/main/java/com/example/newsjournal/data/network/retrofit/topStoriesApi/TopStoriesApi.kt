@@ -1,4 +1,4 @@
-package com.example.newsjournal.data.retrofit.topStoriesApi
+package com.example.newsjournal.data.network.retrofit.topStoriesApi
 
 import com.example.newsjournal.domain.TopStoriesResponse
 import retrofit2.http.GET

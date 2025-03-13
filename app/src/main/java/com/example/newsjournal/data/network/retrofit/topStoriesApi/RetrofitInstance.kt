@@ -1,4 +1,4 @@
-package com.example.newsjournal.data.retrofit.topStoriesApi
+package com.example.newsjournal.data.network.retrofit.topStoriesApi
 
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit

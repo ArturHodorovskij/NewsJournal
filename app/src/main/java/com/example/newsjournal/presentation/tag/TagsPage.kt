@@ -21,8 +21,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.newsjournal.R
-import com.example.newsjournal.domain.NewsTag
-import com.example.newsjournal.presentation.design.BottomAppBar
+import com.example.newsjournal.presentation.design.bottomappbar.BottomAppBar
 import com.example.newsjournal.presentation.design.Separator
 import com.example.newsjournal.presentation.design.TopAppBar
 
@@ -52,13 +51,11 @@ fun TagsPage(navController: NavController) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .clickable {
-//                            val getarts = getArts(item.tag)
-//                            val s = getarts
+                            //TODO повесить переход на новый экран куда отпрравляем тег
                         }
-
                 ) {
                     Text(
-                        text = item.tag,
+                        text = item,
                         fontSize = 24.sp,
                         modifier = Modifier
                             .padding(start = 16.dp, top = 8.dp, bottom = 8.dp)
@@ -69,20 +66,12 @@ fun TagsPage(navController: NavController) {
         }
         Separator()
         BottomAppBar(
-            firstImage = painterResource(R.drawable.home_24),
-            secondImage = painterResource(R.drawable.collections_bookmark_24),
-            thirdImage = painterResource(R.drawable.list_alt_24dp),
             navController = navController,
-            text1Image = "Home",
-            text2Image = "Favorite",
-            text3Image = "Tags"
-
         )
     }
 }
 
-fun getTags(): List<NewsTag> = listOf(NewsTag("arts"), NewsTag("world"), NewsTag("food"))
-
+private fun getTags(): List<String> = listOf("arts", "world", "food")
 
 @Preview(showBackground = true)
 @Composable

@@ -19,7 +19,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 
 import com.example.newsjournal.R
-import com.example.newsjournal.presentation.design.BottomAppBar
+import com.example.newsjournal.presentation.design.bottomappbar.BottomAppBar
 import com.example.newsjournal.presentation.design.Separator
 import com.example.newsjournal.presentation.design.TopAppBar
 
@@ -33,7 +33,7 @@ fun FavoritePage(navController: NavController) {
         TopAppBar(
             title = "Favorite",
             startImage = painterResource(R.drawable.reply_24),
-            startImageClick = {navController.navigate("HomePage")}
+            startImageClick = { navController.navigate("HomePage") }
         )
         Separator()
         LazyColumn(
@@ -52,22 +52,14 @@ fun FavoritePage(navController: NavController) {
             }
         }
         Separator()
-        BottomAppBar(
-            firstImage = painterResource(R.drawable.home_24),
-            secondImage = painterResource(R.drawable.collections_bookmark_24),
-            thirdImage = painterResource(R.drawable.list_alt_24dp),
-            text1Image = "Home",
-            text2Image = "Favorite",
-            text3Image = "Tags",
-            navController = navController
-
-        )
+        BottomAppBar(navController = navController)
     }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun FavoritePagePreview(){
-    FavoritePage(navController = rememberNavController()
+fun FavoritePagePreview() {
+    FavoritePage(
+        navController = rememberNavController()
     )
 }
