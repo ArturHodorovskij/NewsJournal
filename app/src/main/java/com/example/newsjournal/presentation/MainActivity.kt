@@ -1,4 +1,4 @@
-package com.example.newsjournal.presentation.feed
+package com.example.newsjournal.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -11,14 +11,14 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.newsjournal.presentation.design.FavoritePage
-import com.example.newsjournal.presentation.design.HomePage
-import com.example.newsjournal.presentation.design.PasswordRecoveryPage
-import com.example.newsjournal.presentation.design.LoginPage
-import com.example.newsjournal.presentation.design.NewPasswordPage
-import com.example.newsjournal.presentation.design.PrivacyPolicyPage
-import com.example.newsjournal.presentation.design.RegistrationPage
-import com.example.newsjournal.presentation.design.TagsPage
+import com.example.newsjournal.presentation.favorite.FavoritePage
+import com.example.newsjournal.presentation.home.HomeScreen
+import com.example.newsjournal.presentation.autorization.PasswordRecoveryPage
+import com.example.newsjournal.presentation.autorization.LoginPage
+import com.example.newsjournal.presentation.autorization.NewPasswordPage
+import com.example.newsjournal.presentation.autorization.PrivacyPolicyPage
+import com.example.newsjournal.presentation.autorization.RegistrationPage
+import com.example.newsjournal.presentation.tag.TagsPage
 import com.example.newsjournal.presentation.ui.theme.NewsJournalTheme
 
 class MainActivity : ComponentActivity() {
@@ -34,7 +34,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background,
                     ) {
                     NavHost(navController = navController, startDestination = "HomePage") {
-                        composable("HomePage") { HomePage(navController) }
+                        composable("HomePage") { HomeScreen(navController) }
                         composable("FavoritePage") { FavoritePage(navController) }
                         composable("TagsPage") { TagsPage(navController) }
                         composable("LoginPage") { LoginPage(navController) }

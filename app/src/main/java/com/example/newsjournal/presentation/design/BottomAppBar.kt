@@ -22,7 +22,8 @@ import androidx.navigation.compose.rememberNavController
 import com.example.newsjournal.R
 
 @Composable
-fun BottomAppBar(navController:NavController,
+fun BottomAppBar(
+    navController: NavController,
     firstImage: Painter? = null,
     secondImage: Painter? = null,
     thirdImage: Painter? = null,
@@ -30,7 +31,6 @@ fun BottomAppBar(navController:NavController,
     text2Image: String,
     text3Image: String
 ) {
-
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -38,15 +38,13 @@ fun BottomAppBar(navController:NavController,
             .padding(vertical = 8.dp, horizontal = 32.dp),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.Top,
-        ) {
-
+    ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
-                .clickable { navController.navigate("HomePage")}
+                .clickable { navController.navigate("HomePage") }
         ) {
             if (firstImage != null) {
-
                 Image(
                     modifier = Modifier
                         .size(32.dp),
@@ -54,16 +52,14 @@ fun BottomAppBar(navController:NavController,
                     contentDescription = ""
                 )
 
-                Text(
-                    text = text1Image
-                )
+                Text(text = text1Image)
             }
         }
 
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
-                .clickable { navController.navigate("FavoritePage")}
+                .clickable { navController.navigate("FavoritePage") }
         ) {
             if (secondImage != null) {
                 Image(
@@ -72,16 +68,15 @@ fun BottomAppBar(navController:NavController,
                     painter = secondImage,
                     contentDescription = ""
                 )
-                Text(
-                    text = text2Image
-                )
+
+                Text(text = text2Image)
             }
         }
 
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
-                .clickable {navController.navigate("TagsPage") }
+                .clickable { navController.navigate("TagsPage") }
         ) {
             if (thirdImage != null) {
                 Image(
@@ -92,9 +87,7 @@ fun BottomAppBar(navController:NavController,
                 )
             }
 
-            Text(
-                text = text3Image
-            )
+            Text(text = text3Image)
         }
     }
 }

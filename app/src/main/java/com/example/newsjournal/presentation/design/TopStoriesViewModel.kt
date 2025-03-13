@@ -1,9 +1,10 @@
-package com.example.newsjournal.data.retrofit.topStoriesApi
+package com.example.newsjournal.presentation.design
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.newsjournal.data.retrofit.topStoriesApi.RetrofitInstance
 import com.example.newsjournal.domain.TopStoriesResponse
 import kotlinx.coroutines.launch
 

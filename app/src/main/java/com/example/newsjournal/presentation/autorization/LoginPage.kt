@@ -1,4 +1,4 @@
-package com.example.newsjournal.presentation.design
+package com.example.newsjournal.presentation.autorization
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -28,6 +28,10 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.newsjournal.R
+import com.example.newsjournal.presentation.design.ActionButton
+import com.example.newsjournal.presentation.design.InputWindowInformation
+import com.example.newsjournal.presentation.design.Separator
+import com.example.newsjournal.presentation.design.TopAppBar
 import com.example.newsjournal.presentation.ui.theme.defaultBackground
 
 @Composable
