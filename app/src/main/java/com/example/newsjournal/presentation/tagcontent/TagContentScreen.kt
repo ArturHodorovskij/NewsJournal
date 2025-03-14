@@ -1,4 +1,4 @@
-package com.example.newsjournal.presentation.home
+package com.example.newsjournal.presentation.tagcontent
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -30,24 +30,25 @@ import com.example.newsjournal.R
 import com.example.newsjournal.presentation.design.Separator
 import com.example.newsjournal.presentation.design.TopAppBar
 import com.example.newsjournal.presentation.design.bottomappbar.BottomAppBar
+import com.example.newsjournal.presentation.tag.TagsPage
 
 @Composable
-fun HomeScreen(navController: NavController, viewModel: HomeViewModel = viewModel()) {
-
+fun TagContentScreen(navController: NavController, viewModel: TagContentViewModel = viewModel()) {
     val state by viewModel.topStoriesResponse.observeAsState()
 
     LaunchedEffect(Unit) {
         viewModel.load()
     }
-    Column(
-        verticalArrangement = Arrangement.SpaceBetween,
-        modifier = Modifier.fillMaxSize()
-    ) {
 
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.SpaceBetween
+
+    ) {
         TopAppBar(
-            title = "NEWS JOURNAL",
-            startImage = painterResource(R.drawable.person_24),
-            startImageClick = { navController.navigate("LoginPage") }
+            title = "Tags",
+            startImage = painterResource(R.drawable.reply_24),
+            startImageClick = { navController.navigate("TagsPage") }
         )
 
         Separator()
@@ -73,7 +74,7 @@ fun HomeScreen(navController: NavController, viewModel: HomeViewModel = viewMode
                                     .fillMaxWidth()
                                     .height(200.dp),
                                 painter = painter,
-                                contentDescription = ""
+                                contentDescription = null
                             )
 
                         }
@@ -96,17 +97,20 @@ fun HomeScreen(navController: NavController, viewModel: HomeViewModel = viewMode
                 }
             }
         }
-
         Separator()
 
         BottomAppBar(
-            navController = navController
+            navController = navController,
         )
     }
 }
 
-@Preview(showBackground = true, showSystemUi = true)
+
+
+@Preview(showBackground = true)
 @Composable
-fun GreetingPreview2() {
-    HomeScreen(navController = rememberNavController())
+fun TagContentScreen() {
+    TagsPage(
+        navController = rememberNavController()
+    )
 }

@@ -20,6 +20,7 @@ import com.example.newsjournal.presentation.autorization.NewPasswordPage
 import com.example.newsjournal.presentation.autorization.PrivacyPolicyPage
 import com.example.newsjournal.presentation.autorization.RegistrationPage
 import com.example.newsjournal.presentation.tag.TagsPage
+import com.example.newsjournal.presentation.tagcontent.TagContentScreen
 import com.example.newsjournal.presentation.ui.theme.NewsJournalTheme
 
 class MainActivity : ComponentActivity() {
@@ -43,6 +44,7 @@ class MainActivity : ComponentActivity() {
                         composable("RegistrationPage") { RegistrationPage(navController) }
                         composable("PrivacyPolicyPage"){ PrivacyPolicyPage(navController) }
                         composable("NewPasswordPage") { NewPasswordPage(navController) }
+                        composable("TagContentScreen"){ TagContentScreen(navController) }
                 }
             }
         }

@@ -51,7 +51,7 @@ fun TagsPage(navController: NavController) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .clickable {
-                            //TODO повесить переход на новый экран куда отпрравляем тег
+                            navController.navigate("TagContentScreen")
                         }
                 ) {
                     Text(
