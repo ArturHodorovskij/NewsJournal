@@ -50,8 +50,6 @@ fun HomeScreen(navController: NavController, viewModel: HomeViewModel = viewMode
             startImageClick = { navController.navigate("LoginPage") }
         )
 
-        Separator()
-
         state?.let {
             LazyColumn(
                 state = rememberLazyListState(),
@@ -75,8 +73,8 @@ fun HomeScreen(navController: NavController, viewModel: HomeViewModel = viewMode
                                 painter = painter,
                                 contentDescription = ""
                             )
-
                         }
+                        
                         Text(
                             fontSize = 16.sp,
                             text = item.title,
@@ -96,8 +94,6 @@ fun HomeScreen(navController: NavController, viewModel: HomeViewModel = viewMode
                 }
             }
         }
-
-        Separator()
 
         BottomAppBar(
             navController = navController

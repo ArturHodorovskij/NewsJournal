@@ -1,31 +1,32 @@
 package com.example.newsjournal.domain
 
-enum class TagsName {
-    ARTS,
-    FOOD,
-    HOME,
-    WORLD
+import android.media.tv.TvContract.Programs.Genres.ARTS
+
+class TagsName {
+    val tagsTitle = listOf(
+        "arts",
+        "insider",
+        "magazine",
+        "movies",
+        "nyregion",
+        "obituaries",
+        "opinion",
+        "politics",
+        "realestate",
+        "science",
+        "sports",
+        "sundayreview",
+        "technology",
+        "theater",
+        "t-magazine",
+        "travel",
+        "upshot",
+        "us",
+        "health",
+        "automobiles",
+        "books/review",
+        "business",
+        "fashion"
+    )
 }
 
-//"insider",
-//"magazine",
-//"movies",
-//"nyregion",
-//"obituaries",
-//"opinion",
-//"politics",
-//"realestate",
-//"science",
-//"sports",
-//"sundayreview",
-//"technology",
-//"theater",
-//"t-magazine",
-//"travel",
-//"upshot",
-//"us",
-//"health",
-//"automobiles",
-//"books/review",
-//"business",
-//"fashion",

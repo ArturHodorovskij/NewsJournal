@@ -9,13 +9,13 @@ import com.example.newsjournal.domain.TopStoriesResponse
 import kotlinx.coroutines.launch
 
 const val API_KEY = "obOVPCKM90qO7FX4aUKp4ZcsVYmzBX02"
-var section = "home"
 
-class TagContentViewModel : ViewModel() {
-    private val _topStoriesResponse = MutableLiveData <TopStoriesResponse>()
-    val topStoriesResponse: LiveData<TopStoriesResponse> = _topStoriesResponse
 
-    fun load(){
+class TagContentViewModel() : ViewModel() {
+    private val _topStoriesResponse = MutableLiveData<TopStoriesResponse>()
+    val topStoriesResponse: LiveData<TopStoriesResponse> = _topStoriesResponse //это че такое
+
+    fun load(section:String = "") {
         viewModelScope.launch {
             _topStoriesResponse.value = RetrofitInstance.api.getTopStories(section, API_KEY)
         }

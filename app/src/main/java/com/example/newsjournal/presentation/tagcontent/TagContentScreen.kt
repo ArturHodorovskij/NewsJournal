@@ -30,7 +30,8 @@ import com.example.newsjournal.R
 import com.example.newsjournal.presentation.design.Separator
 import com.example.newsjournal.presentation.design.TopAppBar
 import com.example.newsjournal.presentation.design.bottomappbar.BottomAppBar
-import com.example.newsjournal.presentation.tag.TagsPage
+import com.example.newsjournal.presentation.tag.TagsScreen
+
 
 @Composable
 fun TagContentScreen(navController: NavController, viewModel: TagContentViewModel = viewModel()) {
@@ -106,11 +107,10 @@ fun TagContentScreen(navController: NavController, viewModel: TagContentViewMode
 }
 
 
-
 @Preview(showBackground = true)
 @Composable
 fun TagContentScreen() {
-    TagsPage(
+    TagsScreen(
         navController = rememberNavController()
     )
 }

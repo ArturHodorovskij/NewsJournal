@@ -13,18 +13,22 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.newsjournal.R
+import com.example.newsjournal.presentation.design.Separator
 
 @Composable
 fun BottomAppBar(navController: NavController) {
+
     Row(
         modifier = Modifier
             .fillMaxWidth()
+            .shadow(0.5.dp )
             .height(80.dp)
             .padding(vertical = 8.dp, horizontal = 32.dp),
         horizontalArrangement = Arrangement.SpaceBetween,
