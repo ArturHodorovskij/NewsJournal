@@ -1,6 +1,4 @@
-package com.example.newsjournal.domain
-
-import android.media.tv.TvContract.Programs.Genres.ARTS
+package com.example.newsjournal.domain.models
 
 class TagsName {
     val tagsTitle = listOf(

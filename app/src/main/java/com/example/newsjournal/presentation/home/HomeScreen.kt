@@ -74,7 +74,7 @@ fun HomeScreen(navController: NavController, viewModel: HomeViewModel = viewMode
                                 contentDescription = ""
                             )
                         }
-                        
+
                         Text(
                             fontSize = 16.sp,
                             text = item.title,

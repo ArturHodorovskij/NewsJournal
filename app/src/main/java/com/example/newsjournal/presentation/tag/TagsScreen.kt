@@ -26,11 +26,10 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.newsjournal.R
-import com.example.newsjournal.domain.TagsName
+import com.example.newsjournal.domain.models.TagsName
 import com.example.newsjournal.presentation.design.bottomappbar.BottomAppBar
 import com.example.newsjournal.presentation.design.Separator
 import com.example.newsjournal.presentation.design.TopAppBar
-import com.example.newsjournal.presentation.home.HomeViewModel
 import com.example.newsjournal.presentation.tagcontent.TagContentViewModel
 
 @Composable
@@ -46,7 +45,7 @@ fun TagsScreen(navController: NavController,viewModel: TagContentViewModel = vie
             startImage = painterResource(R.drawable.reply_24),
             startImageClick = { navController.navigate("HomePage") }
         )
-        Separator()
+
         LazyColumn(
             state = rememberLazyListState(),
             horizontalAlignment = Alignment.Start,
@@ -64,7 +63,6 @@ fun TagsScreen(navController: NavController,viewModel: TagContentViewModel = vie
                             viewModel.load(item)
                             navController.navigate("TagContentScreen")
                         }
-
                 ) {
                     Text(
                         text = item,
@@ -76,7 +74,7 @@ fun TagsScreen(navController: NavController,viewModel: TagContentViewModel = vie
                 Separator()
             }
         }
-        Separator()
+
         BottomAppBar(
             navController = navController,
         )

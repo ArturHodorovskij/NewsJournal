@@ -19,8 +19,10 @@ import com.example.newsjournal.presentation.autorization.LoginPage
 import com.example.newsjournal.presentation.autorization.NewPasswordPage
 import com.example.newsjournal.presentation.autorization.PrivacyPolicyPage
 import com.example.newsjournal.presentation.autorization.RegistrationPage
+import com.example.newsjournal.presentation.home.section
 import com.example.newsjournal.presentation.tag.TagsScreen
 import com.example.newsjournal.presentation.tagcontent.TagContentScreen
+import com.example.newsjournal.presentation.tagcontent.tag
 import com.example.newsjournal.presentation.ui.theme.NewsJournalTheme
 
 class MainActivity : ComponentActivity() {

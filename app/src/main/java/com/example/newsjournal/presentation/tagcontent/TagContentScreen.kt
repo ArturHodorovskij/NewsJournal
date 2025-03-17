@@ -37,7 +37,7 @@ import com.example.newsjournal.presentation.tag.TagsScreen
 fun TagContentScreen(navController: NavController, viewModel: TagContentViewModel = viewModel()) {
     val state by viewModel.topStoriesResponse.observeAsState()
 
-    LaunchedEffect(Unit) {
+    LaunchedEffect(tag) {
         viewModel.load()
     }
 

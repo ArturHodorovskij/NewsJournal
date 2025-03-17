@@ -1,6 +1,6 @@
-package com.example.newsjournal.data.network.retrofit.topStoriesApi
+package com.example.newsjournal.domain
 
-import com.example.newsjournal.domain.TopStoriesResponse
+import com.example.newsjournal.domain.models.TopStoriesResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query

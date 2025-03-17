@@ -1,5 +1,6 @@
-package com.example.newsjournal.data.network.retrofit.topStoriesApi
+package com.example.newsjournal.data
 
+import com.example.newsjournal.domain.TopStoriesApi
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
