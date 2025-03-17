@@ -12,29 +12,28 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.newsjournal.R
-import com.example.newsjournal.domain.models.TagsName
-import com.example.newsjournal.presentation.design.bottomappbar.BottomAppBar
+import com.example.newsjournal.data.repository.TagRepositoryImpl
+import com.example.newsjournal.domain.models.TagName
+import com.example.newsjournal.domain.models.TagsList
+import com.example.newsjournal.domain.usecase.SaveTagNameUseCase
 import com.example.newsjournal.presentation.design.Separator
 import com.example.newsjournal.presentation.design.TopAppBar
-import com.example.newsjournal.presentation.tagcontent.TagContentViewModel
+import com.example.newsjournal.presentation.design.bottomappbar.BottomAppBar
 
 @Composable
-fun TagsScreen(navController: NavController,viewModel: TagContentViewModel = viewModel()) {
-    var selectedSection by remember { mutableStateOf("home") }
+fun TagsScreen(navController: NavController) {
+    val tagRepository = TagRepositoryImpl()
+    val saveTagNameUseCase = SaveTagNameUseCase(tagRepository = tagRepository)
+
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.SpaceBetween
@@ -54,13 +53,13 @@ fun TagsScreen(navController: NavController,viewModel: TagContentViewModel = vie
                 .fillMaxSize()
                 .padding(start = 8.dp, end = 8.dp)
         ) {
-            items(TagsName().tagsTitle) { item ->
+            items(TagsList().tagsTitle) { item ->
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
                         .clickable {
-                            selectedSection = item
-                            viewModel.load(item)
+                            val tag = TagName(tag = item)
+                            saveTagNameUseCase.saveTagName(nameTag = tag)
                             navController.navigate("TagContentScreen")
                         }
                 ) {
@@ -80,7 +79,6 @@ fun TagsScreen(navController: NavController,viewModel: TagContentViewModel = vie
         )
     }
 }
-
 
 
 @Preview(showBackground = true)

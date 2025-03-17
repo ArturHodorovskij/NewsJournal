@@ -1,6 +1,6 @@
 package com.example.newsjournal.domain.models
 
-class TagsName {
+class TagsList {
     val tagsTitle = listOf(
         "arts",
         "insider",

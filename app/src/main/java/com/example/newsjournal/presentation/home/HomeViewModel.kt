@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.newsjournal.data.RetrofitInstance
+import com.example.newsjournal.data.network.RetrofitInstance
 import com.example.newsjournal.domain.models.TopStoriesResponse
 import kotlinx.coroutines.launch
 

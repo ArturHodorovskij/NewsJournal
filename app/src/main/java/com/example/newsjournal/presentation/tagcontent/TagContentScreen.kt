@@ -27,18 +27,23 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import coil.compose.rememberAsyncImagePainter
 import com.example.newsjournal.R
+import com.example.newsjournal.data.repository.TagRepositoryImpl
+import com.example.newsjournal.domain.models.TagName
+import com.example.newsjournal.domain.usecase.GetTagNameUseCase
 import com.example.newsjournal.presentation.design.Separator
 import com.example.newsjournal.presentation.design.TopAppBar
 import com.example.newsjournal.presentation.design.bottomappbar.BottomAppBar
 import com.example.newsjournal.presentation.tag.TagsScreen
 
-
 @Composable
 fun TagContentScreen(navController: NavController, viewModel: TagContentViewModel = viewModel()) {
+    val tagRepository = TagRepositoryImpl()
+    val getTagNameUseCase = GetTagNameUseCase(tagRepository = tagRepository)
+    val tag: TagName = getTagNameUseCase.getTagName() //TODO тут ложится почему то
     val state by viewModel.topStoriesResponse.observeAsState()
 
-    LaunchedEffect(tag) {
-        viewModel.load()
+    LaunchedEffect(Unit) {
+        viewModel.load(section = "$tag")
     }
 
     Column(

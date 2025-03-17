@@ -1,6 +1,5 @@
 package com.example.newsjournal.presentation
 
-import android.app.Application
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -12,17 +11,15 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.newsjournal.presentation.favorite.FavoritePage
-import com.example.newsjournal.presentation.home.HomeScreen
-import com.example.newsjournal.presentation.autorization.PasswordRecoveryPage
 import com.example.newsjournal.presentation.autorization.LoginPage
 import com.example.newsjournal.presentation.autorization.NewPasswordPage
+import com.example.newsjournal.presentation.autorization.PasswordRecoveryPage
 import com.example.newsjournal.presentation.autorization.PrivacyPolicyPage
 import com.example.newsjournal.presentation.autorization.RegistrationPage
-import com.example.newsjournal.presentation.home.section
+import com.example.newsjournal.presentation.favorite.FavoritePage
+import com.example.newsjournal.presentation.home.HomeScreen
 import com.example.newsjournal.presentation.tag.TagsScreen
 import com.example.newsjournal.presentation.tagcontent.TagContentScreen
-import com.example.newsjournal.presentation.tagcontent.tag
 import com.example.newsjournal.presentation.ui.theme.NewsJournalTheme
 
 class MainActivity : ComponentActivity() {
