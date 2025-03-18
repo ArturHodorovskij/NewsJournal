@@ -21,18 +21,13 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.newsjournal.R
-import com.example.newsjournal.data.repository.TagRepositoryImpl
-import com.example.newsjournal.domain.models.TagName
 import com.example.newsjournal.domain.models.TagsList
-import com.example.newsjournal.domain.usecase.SaveTagNameUseCase
 import com.example.newsjournal.presentation.design.Separator
 import com.example.newsjournal.presentation.design.TopAppBar
 import com.example.newsjournal.presentation.design.bottomappbar.BottomAppBar
 
 @Composable
 fun TagsScreen(navController: NavController) {
-    val tagRepository = TagRepositoryImpl()
-    val saveTagNameUseCase = SaveTagNameUseCase(tagRepository = tagRepository)
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -58,9 +53,7 @@ fun TagsScreen(navController: NavController) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .clickable {
-                            val tag = TagName(tag = item)
-                            saveTagNameUseCase.saveTagName(nameTag = tag)
-                            navController.navigate("TagContentScreen")
+                            navController.navigate("TagContentScreen/$item")
                         }
                 ) {
                     Text(

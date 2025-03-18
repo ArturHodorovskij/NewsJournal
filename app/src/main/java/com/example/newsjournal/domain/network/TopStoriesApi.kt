@@ -7,7 +7,7 @@ import retrofit2.http.Query
 
 interface TopStoriesApi {
     @GET("{section}.json")
-    suspend fun getTopStories( // почему суспенд? работало ж и без него
+    suspend fun getTopStories(
         @Path("section") section: String,
         @Query("api-key") apiKey: String
     ): TopStoriesResponse?

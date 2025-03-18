@@ -29,21 +29,26 @@ class MainActivity : ComponentActivity() {
         setContent {
             val navController = rememberNavController()
             NewsJournalTheme {
-                }
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background,
-                    ) {
-                    NavHost(navController = navController, startDestination = "HomePage") {
-                        composable("HomePage") { HomeScreen(navController) }
-                        composable("FavoritePage") { FavoritePage(navController) }
-                        composable("TagsPage") { TagsScreen(navController) }
-                        composable("LoginPage") { LoginPage(navController) }
-                        composable("PasswordRecoveryPage"){ PasswordRecoveryPage(navController) }
-                        composable("RegistrationPage") { RegistrationPage(navController) }
-                        composable("PrivacyPolicyPage"){ PrivacyPolicyPage(navController) }
-                        composable("NewPasswordPage") { NewPasswordPage(navController) }
-                        composable("TagContentScreen"){ TagContentScreen(navController) }
+            }
+            Surface(
+                modifier = Modifier.fillMaxSize(),
+                color = MaterialTheme.colorScheme.background,
+            ) {
+                NavHost(navController = navController, startDestination = "HomePage") {
+                    composable("HomePage") { HomeScreen(navController) }
+                    composable("FavoritePage") { FavoritePage(navController) }
+                    composable("TagsPage") { TagsScreen(navController) }
+                    composable("LoginPage") { LoginPage(navController) }
+                    composable("PasswordRecoveryPage") { PasswordRecoveryPage(navController) }
+                    composable("RegistrationPage") { RegistrationPage(navController) }
+                    composable("PrivacyPolicyPage") { PrivacyPolicyPage(navController) }
+                    composable("NewPasswordPage") { NewPasswordPage(navController) }
+                    composable("TagContentScreen" + "/{tag}") { stackEntry ->
+
+                        val tag = stackEntry.arguments?.getString("tag")
+
+                        TagContentScreen(navController, tag)
+                    }
                 }
             }
         }
