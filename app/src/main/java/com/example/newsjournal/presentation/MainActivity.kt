@@ -11,15 +11,15 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.newsjournal.presentation.autorization.LoginPage
-import com.example.newsjournal.presentation.autorization.NewPasswordPage
-import com.example.newsjournal.presentation.autorization.PasswordRecoveryPage
-import com.example.newsjournal.presentation.autorization.PrivacyPolicyPage
-import com.example.newsjournal.presentation.autorization.RegistrationPage
-import com.example.newsjournal.presentation.favorite.FavoritePage
-import com.example.newsjournal.presentation.home.HomeScreen
-import com.example.newsjournal.presentation.tag.TagsScreen
-import com.example.newsjournal.presentation.tagcontent.TagContentScreen
+import com.example.newsjournal.presentation.screen.autorization.LoginScreen
+import com.example.newsjournal.presentation.screen.autorization.NewPasswordScreen
+import com.example.newsjournal.presentation.screen.autorization.PasswordRecoveryScreen
+import com.example.newsjournal.presentation.screen.autorization.PrivacyPolicyScreen
+import com.example.newsjournal.presentation.screen.autorization.RegistrationScreen
+import com.example.newsjournal.presentation.screen.favorite.FavoriteScreen
+import com.example.newsjournal.presentation.screen.home.HomeScreen
+import com.example.newsjournal.presentation.screen.tag.TagsScreen
+import com.example.newsjournal.presentation.screen.tagcontent.TagContentScreen
 import com.example.newsjournal.presentation.ui.theme.NewsJournalTheme
 
 class MainActivity : ComponentActivity() {
@@ -36,13 +36,13 @@ class MainActivity : ComponentActivity() {
             ) {
                 NavHost(navController = navController, startDestination = "HomePage") {
                     composable("HomePage") { HomeScreen(navController) }
-                    composable("FavoritePage") { FavoritePage(navController) }
+                    composable("FavoritePage") { FavoriteScreen(navController) }
                     composable("TagsPage") { TagsScreen(navController) }
-                    composable("LoginPage") { LoginPage(navController) }
-                    composable("PasswordRecoveryPage") { PasswordRecoveryPage(navController) }
-                    composable("RegistrationPage") { RegistrationPage(navController) }
-                    composable("PrivacyPolicyPage") { PrivacyPolicyPage(navController) }
-                    composable("NewPasswordPage") { NewPasswordPage(navController) }
+                    composable("LoginPage") { LoginScreen(navController) }
+                    composable("PasswordRecoveryPage") { PasswordRecoveryScreen(navController) }
+                    composable("RegistrationPage") { RegistrationScreen(navController) }
+                    composable("PrivacyPolicyPage") { PrivacyPolicyScreen(navController) }
+                    composable("NewPasswordPage") { NewPasswordScreen(navController) }
                     composable("TagContentScreen" + "/{tag}") { stackEntry ->
 
                         val tag = stackEntry.arguments?.getString("tag")
