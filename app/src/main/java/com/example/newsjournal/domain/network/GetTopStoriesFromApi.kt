@@ -5,7 +5,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 
-interface TopStoriesApi {
+interface GetTopStoriesFromApi {
     @GET("{section}.json")
     suspend fun getTopStories(
         @Path("section") section: String,

@@ -1,6 +1,6 @@
 package com.example.newsjournal.data.network
 
-import com.example.newsjournal.domain.network.TopStoriesApi
+import com.example.newsjournal.domain.network.GetTopStoriesFromApi
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -15,7 +15,5 @@ object RetrofitInstance {
             .client(client)
             .build()
     }
-    val api: TopStoriesApi by lazy {
-        retrofit.create(TopStoriesApi::class.java)
-    }
+    val api: GetTopStoriesFromApi by lazy { retrofit.create(GetTopStoriesFromApi::class.java) }
 }

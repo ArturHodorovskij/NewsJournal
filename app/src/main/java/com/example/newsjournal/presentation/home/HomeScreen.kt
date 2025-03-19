@@ -34,10 +34,11 @@ import com.example.newsjournal.presentation.design.bottomappbar.BottomAppBar
 @Composable
 fun HomeScreen(navController: NavController, viewModel: HomeViewModel = viewModel()) {
 
-    val state by viewModel.topStoriesResponse.observeAsState()
-
+    val state by viewModel.topStoriesResponse.observeAsState()  //TODO как это работает
+    val tag = "home"
+    
     LaunchedEffect(Unit) {
-        viewModel.load()
+        viewModel.load(section = tag)
     }
     Column(
         verticalArrangement = Arrangement.SpaceBetween,
