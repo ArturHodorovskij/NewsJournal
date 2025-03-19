@@ -21,7 +21,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.newsjournal.R
-import com.example.newsjournal.domain.models.TagsList
+import com.example.newsjournal.data.network.models.TagsList
 import com.example.newsjournal.presentation.design.Separator
 import com.example.newsjournal.presentation.design.TopAppBar
 import com.example.newsjournal.presentation.design.bottomappbar.BottomAppBar
@@ -58,7 +58,7 @@ fun TagsScreen(navController: NavController) {
                 ) {
                     Text(
                         text = item,
-                        fontSize = 24.sp,
+                        fontSize = 18.sp,
                         modifier = Modifier
                             .padding(start = 16.dp, top = 8.dp, bottom = 8.dp)
                     )

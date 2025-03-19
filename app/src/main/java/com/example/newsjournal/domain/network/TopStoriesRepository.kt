@@ -1,4 +1,4 @@
-package com.example.newsjournal.domain.repository
+package com.example.newsjournal.domain.network
 
 import com.example.newsjournal.domain.models.TopStoriesResponse
 

@@ -1,7 +1,7 @@
 package com.example.newsjournal.domain.usecase
 
 import com.example.newsjournal.domain.models.TopStoriesResponse
-import com.example.newsjournal.domain.repository.TopStoriesRepository
+import com.example.newsjournal.domain.network.TopStoriesRepository
 
 class GetTopStoriesUseCase(private val topStoriesRepository: TopStoriesRepository) {
 

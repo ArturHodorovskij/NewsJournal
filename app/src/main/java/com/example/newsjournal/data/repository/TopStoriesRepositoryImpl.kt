@@ -1,14 +1,17 @@
 package com.example.newsjournal.data.repository
 
-import com.example.newsjournal.data.network.RetrofitInstance
+
+import com.example.newsjournal.data.network.TopStoriesNetwork
 import com.example.newsjournal.domain.models.TopStoriesResponse
-import com.example.newsjournal.domain.repository.TopStoriesRepository
+import com.example.newsjournal.domain.network.TopStoriesRepository
 
-const val API_KEY = "obOVPCKM90qO7FX4aUKp4ZcsVYmzBX02"
+class TopStoriesRepositoryImpl(private val topStoriesFromNetwork: TopStoriesNetwork) : TopStoriesRepository {
 
-class TopStoriesRepositoryImpl : TopStoriesRepository {
     override suspend fun getTopStoriesValue(section: String): TopStoriesResponse? {
-        val topStoriesValue = RetrofitInstance.api.getTopStories(section, API_KEY)
-        return topStoriesValue
+        val topStoriesValue = topStoriesFromNetwork.getTopStoriesValue(section)
+
+        val topStoriesResponse = topStoriesValue?.let { TopStoriesResponse(results = it.results ) }
+
+        return topStoriesResponse
     }
 }

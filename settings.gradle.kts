@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "NewsJournal"
 include(":app")
+include(":data")
