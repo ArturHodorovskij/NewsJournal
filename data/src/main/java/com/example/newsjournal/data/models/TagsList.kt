@@ -4,7 +4,6 @@ class TagsList {
     val tagsTitle = listOf(
         "Arts",
         "Insider",
-        "Magazine",
         "Movies",
         "Politics",
         "Realestate",
