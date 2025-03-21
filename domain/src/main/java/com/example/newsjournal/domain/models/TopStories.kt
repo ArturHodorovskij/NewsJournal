@@ -1,5 +1,5 @@
 package com.example.newsjournal.domain.models
 
-data class TopStoriesResponse(
+data class TopStories(
     val results: List<Article>
 )

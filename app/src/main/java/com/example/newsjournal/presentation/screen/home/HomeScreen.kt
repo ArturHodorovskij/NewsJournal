@@ -1,5 +1,6 @@
 package com.example.newsjournal.presentation.screen.home
 
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -33,8 +34,9 @@ import com.example.newsjournal.presentation.design.bottomappbar.BottomAppBar
 
 @Composable
 fun HomeScreen(navController: NavController, viewModel: HomeViewModel = viewModel()) {
+    Log.e("AAA","HomeScreen")
 
-    val state by viewModel.topStoriesResponse.observeAsState()  //TODO как это работает
+    val state by viewModel.topStories.observeAsState()  //TODO как это работает
     val tag = "home"
     
     LaunchedEffect(Unit) {

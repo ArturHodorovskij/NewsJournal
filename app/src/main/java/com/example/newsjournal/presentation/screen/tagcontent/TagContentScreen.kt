@@ -35,7 +35,7 @@ import com.example.newsjournal.presentation.screen.tag.TagsScreen
 @Composable
 fun TagContentScreen(navController: NavController, tag:String?, viewModel: TagContentViewModel = viewModel()) {
 
-    val state by viewModel.topStoriesResponse.observeAsState()
+    val state by viewModel.topStories.observeAsState()
 
     LaunchedEffect(Unit) {
         viewModel.load(section = tag.toString())

@@ -1,6 +1,6 @@
 package com.example.newsjournal.data.models
 
-class TagsList {
+
     val tagsTitle = listOf(
         "Arts",
         "Insider",
@@ -22,5 +22,5 @@ class TagsList {
         "Business",
         "Fashion"
     )
-}
+
 

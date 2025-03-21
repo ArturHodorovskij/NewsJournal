@@ -2,7 +2,7 @@ package com.example.newsjournal.data.models
 
 import com.google.gson.annotations.SerializedName
 
-data class Multimedia(
+data class MultimediaResponse(
     @SerializedName("url") val url: String,
     @SerializedName("format") val format: String,
     @SerializedName("height") val height: Int,

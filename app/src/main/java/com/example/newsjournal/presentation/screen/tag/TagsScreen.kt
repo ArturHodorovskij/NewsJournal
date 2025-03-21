@@ -1,5 +1,4 @@
 package com.example.newsjournal.presentation.screen.tag
-
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -8,7 +7,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -21,10 +19,11 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.newsjournal.R
-import com.example.newsjournal.data.models.TagsList
+import com.example.newsjournal.data.models.tagsTitle
 import com.example.newsjournal.presentation.design.Separator
 import com.example.newsjournal.presentation.design.TopAppBar
 import com.example.newsjournal.presentation.design.bottomappbar.BottomAppBar
+import androidx.compose.foundation.lazy.items
 
 @Composable
 fun TagsScreen(navController: NavController) {
@@ -48,7 +47,7 @@ fun TagsScreen(navController: NavController) {
                 .fillMaxSize()
                 .padding(start = 8.dp, end = 8.dp)
         ) {
-            items(TagsList().tagsTitle) { item ->
+            items(tagsTitle) { item ->
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()

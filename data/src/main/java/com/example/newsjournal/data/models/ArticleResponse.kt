@@ -3,7 +3,7 @@ package com.example.newsjournal.data.models
 import com.example.newsjournal.domain.models.Multimedia
 import com.google.gson.annotations.SerializedName
 
-data class Article(
+data class ArticleResponse(
     @SerializedName("section") val section: String,
     @SerializedName("subsection") val subsection: String?,
     @SerializedName("title") val title: String,
