@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.newsjournal.presentation.design.AppNavigation
 import com.example.newsjournal.presentation.screen.autorization.LoginScreen
 import com.example.newsjournal.presentation.screen.autorization.NewPasswordScreen
 import com.example.newsjournal.presentation.screen.autorization.PasswordRecoveryScreen
@@ -27,29 +28,14 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            val navController = rememberNavController()
+
             NewsJournalTheme {
             }
             Surface(
                 modifier = Modifier.fillMaxSize(),
                 color = MaterialTheme.colorScheme.background,
             ) {
-                NavHost(navController = navController, startDestination = "HomePage") {
-                    composable("HomePage") { HomeScreen(navController) }
-                    composable("FavoritePage") { FavoriteScreen(navController) }
-                    composable("TagsPage") { TagsScreen(navController) }
-                    composable("LoginPage") { LoginScreen(navController) }
-                    composable("PasswordRecoveryPage") { PasswordRecoveryScreen(navController) }
-                    composable("RegistrationPage") { RegistrationScreen(navController) }
-                    composable("PrivacyPolicyPage") { PrivacyPolicyScreen(navController) }
-                    composable("NewPasswordPage") { NewPasswordScreen(navController) }
-                    composable("TagContentScreen" + "/{tag}") { stackEntry ->
-
-                        val tag = stackEntry.arguments?.getString("tag")
-
-                        TagContentScreen(navController, tag)
-                    }
-                }
+                AppNavigation()
             }
         }
     }

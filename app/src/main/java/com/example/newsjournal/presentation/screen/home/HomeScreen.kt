@@ -109,3 +109,4 @@ fun HomeScreen(navController: NavController, viewModel: HomeViewModel = viewMode
 fun GreetingPreview2() {
     HomeScreen(navController = rememberNavController())
 }
+
