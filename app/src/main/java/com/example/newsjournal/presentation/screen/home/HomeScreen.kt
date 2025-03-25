@@ -23,11 +23,7 @@ import com.example.newsjournal.presentation.design.DownloadIndicator
 fun HomeScreen(navController: NavController, viewModel: HomeViewModel = viewModel()) {
 
     val state by viewModel.state.observeAsState()
-    val tag = "home"
 
-    LaunchedEffect(Unit) {
-        viewModel.loadData(section = tag)
-    }
     Column(
         verticalArrangement = Arrangement.SpaceBetween,
         modifier = Modifier.fillMaxSize()
@@ -42,7 +38,8 @@ fun HomeScreen(navController: NavController, viewModel: HomeViewModel = viewMode
         Crossfade(
             modifier = Modifier.weight(1f),
             targetState = state, label = "Crossroad"
-        ) { targetState ->
+        ) {
+            targetState ->
             when (targetState) {
                 is HomeScreenState.Initial -> Unit
                 is HomeScreenState.Loading -> DownloadIndicator()
