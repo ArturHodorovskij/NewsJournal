@@ -1,4 +1,4 @@
-package com.example.newsjournal.presentation.screen.home
+package com.example.newsjournal.presentation.screen.tagcontent
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -10,7 +10,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun HomeScreenError(errorMessage: HomeScreenState.Error) {
+fun TagContentScreenError(errorMessage: TagContentScreenState.Error) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -22,5 +22,4 @@ fun HomeScreenError(errorMessage: HomeScreenState.Error) {
                 .padding(8.dp))
     }
 }
-
 

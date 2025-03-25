@@ -1,33 +1,21 @@
 package com.example.newsjournal.presentation.screen.tagcontent
 
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.clickable
+import androidx.compose.animation.Crossfade
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import coil.compose.rememberAsyncImagePainter
 import com.example.newsjournal.R
-import com.example.newsjournal.presentation.design.Separator
+import com.example.newsjournal.presentation.design.DownloadIndicator
 import com.example.newsjournal.presentation.design.TopAppBar
 import com.example.newsjournal.presentation.design.bottomappbar.BottomAppBar
 import com.example.newsjournal.presentation.screen.tag.TagsScreen
@@ -35,10 +23,10 @@ import com.example.newsjournal.presentation.screen.tag.TagsScreen
 @Composable
 fun TagContentScreen(navController: NavController, tag:String?, viewModel: TagContentViewModel = viewModel()) {
 
-    val state by viewModel.topStories.observeAsState()
+    val state by viewModel.state.observeAsState()
 
     LaunchedEffect(Unit) {
-        viewModel.load(section = tag.toString())
+        viewModel.loadData(section = tag.toString())
     }
 
     Column(
@@ -52,48 +40,16 @@ fun TagContentScreen(navController: NavController, tag:String?, viewModel: TagCo
             startImageClick = { navController.navigate("TagsPage") }
         )
 
-        state?.let {
-            LazyColumn(
-                state = rememberLazyListState(),
-                modifier = Modifier.weight(1f)
-            ) {
-                items(it.results) { item ->
-                    Column(
-                        verticalArrangement = Arrangement.Top,
-                        modifier = Modifier
-                            .padding(8.dp)
-                            .clickable { }
-
-                    ) {
-                        val firstImage = item.multimedia?.firstOrNull()?.url
-                        if (firstImage != null) {
-                            val painter = rememberAsyncImagePainter(firstImage)
-                            Image(
-                                modifier = Modifier
-                                    .fillMaxWidth()
-                                    .height(200.dp),
-                                painter = painter,
-                                contentDescription = null
-                            )
-
-                        }
-                        Text(
-                            fontSize = 16.sp,
-                            text = item.title,
-                            fontWeight = FontWeight.Black,
-                            modifier = Modifier
-                                .padding(8.dp)
-                        )
-
-                        Text(
-                            text = item.abstract,
-                            fontSize = 16.sp,
-                            modifier = Modifier
-                                .padding(8.dp)
-                        )
-                        Separator()
-                    }
-                }
+        Crossfade(
+            modifier = Modifier.weight(1f),
+            targetState = state, label = "Crossroad"
+        ) { targetState ->
+            when (targetState) {
+                is TagContentScreenState.Initial -> Unit
+                is TagContentScreenState.Loading -> DownloadIndicator()
+                is TagContentScreenState.Content -> TagContentScreenContent(tagContentScreenState = targetState)
+                is TagContentScreenState.Error -> TagContentScreenError(errorMessage = targetState)
+                else -> Unit
             }
         }
 
@@ -102,7 +58,6 @@ fun TagContentScreen(navController: NavController, tag:String?, viewModel: TagCo
         )
     }
 }
-
 
 @Preview(showBackground = true)
 @Composable

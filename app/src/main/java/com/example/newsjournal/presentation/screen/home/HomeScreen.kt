@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
@@ -15,9 +14,9 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.newsjournal.R
+import com.example.newsjournal.presentation.design.DownloadIndicator
 import com.example.newsjournal.presentation.design.TopAppBar
 import com.example.newsjournal.presentation.design.bottomappbar.BottomAppBar
-import com.example.newsjournal.presentation.design.DownloadIndicator
 
 @Composable
 fun HomeScreen(navController: NavController, viewModel: HomeViewModel = viewModel()) {
@@ -38,13 +37,12 @@ fun HomeScreen(navController: NavController, viewModel: HomeViewModel = viewMode
         Crossfade(
             modifier = Modifier.weight(1f),
             targetState = state, label = "Crossroad"
-        ) {
-            targetState ->
+        ) { targetState ->
             when (targetState) {
                 is HomeScreenState.Initial -> Unit
                 is HomeScreenState.Loading -> DownloadIndicator()
-                is HomeScreenState.Content -> HomeScreenContent(someState = targetState)
-                is HomeScreenState.Error -> ErrorDialog(errorMessage = targetState)
+                is HomeScreenState.Content -> HomeScreenContent(homeScreenState = targetState)
+                is HomeScreenState.Error -> HomeScreenError(errorMessage = targetState)
                 else -> Unit
             }
         }
