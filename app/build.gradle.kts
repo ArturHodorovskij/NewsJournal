@@ -41,6 +41,9 @@ android {
 
 dependencies {
 
+    debugImplementation (libs.leakcanary.android)
+    releaseImplementation (libs.leakcanary.android.no.op)
+    implementation(libs.timber)
     implementation(project(":domain"))
     implementation(project(":data"))
     implementation(libs.androidx.navigation.compose)
@@ -66,4 +69,5 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
 }

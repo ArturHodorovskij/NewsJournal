@@ -26,7 +26,7 @@ fun TagContentScreen(navController: NavController, tag:String?, viewModel: TagCo
     val state by viewModel.state.observeAsState()
 
     LaunchedEffect(Unit) {
-        viewModel.loadData(section = tag.toString())
+        viewModel.loadData(tag = tag.toString())
     }
 
     Column(

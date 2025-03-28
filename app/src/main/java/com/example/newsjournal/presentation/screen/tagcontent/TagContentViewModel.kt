@@ -20,11 +20,11 @@ class TagContentViewModel : ViewModel() {
     private val _state = MutableLiveData<TagContentScreenState>()
     val state: LiveData<TagContentScreenState> = _state
 
-    fun loadData(section: String) {
+    fun loadData(tag: String) {
         _state.value = TagContentScreenState.Loading
         viewModelScope.launch {
             try {
-                _state.value = TagContentScreenState.Content(getTopStoriesUseCase.execute(section))
+                _state.value = TagContentScreenState.Content(getTopStoriesUseCase.execute(tag))
             } catch (e: Exception) {
                 handleError(e.message.toString())
             }
