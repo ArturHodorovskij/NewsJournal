@@ -9,10 +9,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import com.example.newsjournal.R
 import com.example.newsjournal.presentation.design.DownloadIndicator
 import com.example.newsjournal.presentation.design.TopAppBar
@@ -41,7 +39,10 @@ fun HomeScreen(navController: NavController, viewModel: HomeViewModel = viewMode
             when (targetState) {
                 is HomeScreenState.Initial -> Unit
                 is HomeScreenState.Loading -> DownloadIndicator()
-                is HomeScreenState.Content -> HomeScreenContent(homeScreenState = targetState)
+                is HomeScreenState.Content -> HomeScreenContent(
+                    refreshData = viewModel::reloadData,
+                    topStories = targetState.items
+                )
                 is HomeScreenState.Error -> HomeScreenError(errorMessage = targetState)
                 else -> Unit
             }
@@ -52,10 +53,3 @@ fun HomeScreen(navController: NavController, viewModel: HomeViewModel = viewMode
         )
     }
 }
-
-@Preview(showBackground = true, showSystemUi = true)
-@Composable
-fun GreetingPreview2() {
-    HomeScreen(navController = rememberNavController())
-}
-
