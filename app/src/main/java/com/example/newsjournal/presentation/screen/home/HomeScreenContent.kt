@@ -65,23 +65,23 @@ fun HomeScreenContent(
                             .fillMaxWidth()
                             .height(200.dp)
                     )
+
+                    Text(
+                        fontSize = 16.sp,
+                        text = item.title,
+                        fontWeight = FontWeight.Black,
+                        modifier = Modifier
+                            .padding(8.dp)
+                    )
+
+                    Text(
+                        text = item.abstract,
+                        fontSize = 16.sp,
+                        modifier = Modifier
+                            .padding(8.dp)
+                    )
+                    Separator()
                 }
-
-                Text(
-                    fontSize = 16.sp,
-                    text = item.title,
-                    fontWeight = FontWeight.Black,
-                    modifier = Modifier
-                        .padding(8.dp)
-                )
-
-                Text(
-                    text = item.abstract,
-                    fontSize = 16.sp,
-                    modifier = Modifier
-                        .padding(8.dp)
-                )
-                Separator()
             }
         }
     }

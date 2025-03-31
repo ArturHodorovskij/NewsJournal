@@ -36,7 +36,7 @@ fun TagsScreen(navController: NavController) {
         TopAppBar(
             title = "Tags",
             startImage = painterResource(R.drawable.reply_24),
-            startImageClick = { navController.navigateUp() }
+            startImageClick = { navController.popBackStack("HomePage",false) }
         )
 
         LazyColumn(
