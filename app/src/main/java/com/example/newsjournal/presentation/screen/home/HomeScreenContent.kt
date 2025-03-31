@@ -53,7 +53,7 @@ fun HomeScreenContent(navController: NavController, topStories: TopStories, refr
                         .padding(8.dp)
                         .clickable {
                             val url = item.url
-                            navController.navigate("NewsScreen/$url")
+                            navController.navigate("NewsScreen")
                         }
 
                 ) {

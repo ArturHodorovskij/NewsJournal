@@ -1,7 +1,5 @@
-package com.example.newsjournal.presentation.screen
+package com.example.newsjournal.presentation.screen.news
 
-import android.webkit.WebView
-import android.webkit.WebViewClient
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -9,7 +7,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.viewinterop.AndroidView
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.newsjournal.R
@@ -17,7 +14,7 @@ import com.example.newsjournal.presentation.design.TopAppBar
 import com.example.newsjournal.presentation.design.bottomappbar.BottomAppBar
 
 @Composable
-fun NewsScreen(navController: NavController, url: String?){
+fun NewsScreen(navController: NavController){
     Column(
         verticalArrangement = Arrangement.SpaceBetween,
         modifier = Modifier.fillMaxSize()
@@ -28,12 +25,7 @@ fun NewsScreen(navController: NavController, url: String?){
             startImage = painterResource(R.drawable.reply_24),
             startImageClick = { navController.navigate("HomePage") }
         )
-        AndroidView(factory = {
-            WebView(it).apply{
-                webViewClient = WebViewClient()
-                loadUrl(url.toString())
-            }
-        })
+        WebViewModel(url="https://www.nytimes.com/2025/03/29/movies/how-to-live-in-the-mall.html")
 
         BottomAppBar(
             navController = navController
@@ -47,5 +39,5 @@ fun NewsScreen(navController: NavController, url: String?){
 @Preview(showBackground = true)
 @Composable
 fun NewsScreenPreview() {
-    NewsScreen(navController = rememberNavController(), url = "https://www.nytimes.com/2025/03/29/movies/how-to-live-in-the-mall.html")
+    NewsScreen(navController = rememberNavController())
 }

@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.newsjournal.presentation.screen.NewsScreen
+import com.example.newsjournal.presentation.screen.news.NewsScreen
 import com.example.newsjournal.presentation.screen.autorization.LoginScreen
 import com.example.newsjournal.presentation.screen.autorization.NewPasswordScreen
 import com.example.newsjournal.presentation.screen.autorization.PasswordRecoveryScreen
@@ -16,7 +16,7 @@ import com.example.newsjournal.presentation.screen.tag.TagsScreen
 import com.example.newsjournal.presentation.screen.tagcontent.TagContentScreen
 
 @Composable
-fun AppNavigation(){
+fun AppNavigation() {
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = "HomePage") {
         composable("HomePage") { HomeScreen(navController) }
@@ -27,9 +27,10 @@ fun AppNavigation(){
         composable("RegistrationPage") { RegistrationScreen(navController) }
         composable("PrivacyPolicyPage") { PrivacyPolicyScreen(navController) }
         composable("NewPasswordPage") { NewPasswordScreen(navController) }
-        composable("NewScreen"+"/{url}") {stackEntry ->
-            val url = stackEntry.arguments?.getString("url")
-            NewsScreen(navController, url) }
+        composable("NewsScreen") {
+            NewsScreen(navController)
+        }
+
         composable("TagContentScreen" + "/{tag}") { stackEntry ->
             val tag = stackEntry.arguments?.getString("tag")
             TagContentScreen(navController, tag)
