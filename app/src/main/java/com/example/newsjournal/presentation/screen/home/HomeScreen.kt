@@ -41,7 +41,8 @@ fun HomeScreen(navController: NavController, viewModel: HomeViewModel = viewMode
                 is HomeScreenState.Loading -> DownloadIndicator()
                 is HomeScreenState.Content -> HomeScreenContent(
                     refreshData = viewModel::reloadData,
-                    topStories = targetState.items
+                    topStories = targetState.items,
+                    navController = navController
                 )
                 is HomeScreenState.Error -> HomeScreenError(errorMessage = targetState)
                 else -> Unit

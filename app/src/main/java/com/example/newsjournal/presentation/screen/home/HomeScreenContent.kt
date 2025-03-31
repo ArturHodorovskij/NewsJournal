@@ -23,13 +23,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
 import com.example.newsjournal.domain.models.TopStories
 import com.example.newsjournal.presentation.design.Separator
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreenContent(topStories: TopStories, refreshData: () -> Unit) {
+fun HomeScreenContent(navController: NavController, topStories: TopStories, refreshData: () -> Unit) {
     val state = rememberPullToRefreshState()
     var isRefreshing: Boolean by remember { mutableStateOf(false) }
 
@@ -50,7 +51,10 @@ fun HomeScreenContent(topStories: TopStories, refreshData: () -> Unit) {
                     verticalArrangement = Arrangement.Top,
                     modifier = Modifier
                         .padding(8.dp)
-                        .clickable { }
+                        .clickable {
+                            val url = item.url
+                            navController.navigate("NewsScreen/$url")
+                        }
 
                 ) {
                     val firstImage = item.multimedia?.firstOrNull()?.url

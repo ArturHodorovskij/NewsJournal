@@ -4,4 +4,5 @@ data class Article(
     val title: String,
     val abstract: String,
     val multimedia: List<Multimedia>?,
+    val url: String
 )

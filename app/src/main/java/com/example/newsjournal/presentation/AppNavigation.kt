@@ -1,9 +1,10 @@
-package com.example.newsjournal.presentation.design
+package com.example.newsjournal.presentation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.newsjournal.presentation.screen.NewsScreen
 import com.example.newsjournal.presentation.screen.autorization.LoginScreen
 import com.example.newsjournal.presentation.screen.autorization.NewPasswordScreen
 import com.example.newsjournal.presentation.screen.autorization.PasswordRecoveryScreen
@@ -26,6 +27,9 @@ fun AppNavigation(){
         composable("RegistrationPage") { RegistrationScreen(navController) }
         composable("PrivacyPolicyPage") { PrivacyPolicyScreen(navController) }
         composable("NewPasswordPage") { NewPasswordScreen(navController) }
+        composable("NewScreen"+"/{url}") {stackEntry ->
+            val url = stackEntry.arguments?.getString("url")
+            NewsScreen(navController, url) }
         composable("TagContentScreen" + "/{tag}") { stackEntry ->
             val tag = stackEntry.arguments?.getString("tag")
             TagContentScreen(navController, tag)
