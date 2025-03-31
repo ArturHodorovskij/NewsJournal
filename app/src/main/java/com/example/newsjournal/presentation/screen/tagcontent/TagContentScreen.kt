@@ -21,12 +21,16 @@ import com.example.newsjournal.presentation.design.bottomappbar.BottomAppBar
 import com.example.newsjournal.presentation.screen.tag.TagsScreen
 
 @Composable
-fun TagContentScreen(navController: NavController, tag:String?, viewModel: TagContentViewModel = viewModel()) {
+fun TagContentScreen(
+    navController: NavController,
+    tag: String,
+    viewModel: TagContentViewModel = viewModel()
+) {
 
     val state by viewModel.state.observeAsState()
 
     LaunchedEffect(Unit) {
-        viewModel.loadData(tag = tag.toString())
+        viewModel.loadData(tag = tag)
     }
 
     Column(
@@ -35,7 +39,7 @@ fun TagContentScreen(navController: NavController, tag:String?, viewModel: TagCo
 
     ) {
         TopAppBar(
-            title = "$tag",
+            title = tag,
             startImage = painterResource(R.drawable.reply_24),
             startImageClick = { navController.navigate("TagsPage") }
         )
@@ -47,8 +51,16 @@ fun TagContentScreen(navController: NavController, tag:String?, viewModel: TagCo
             when (targetState) {
                 is TagContentScreenState.Initial -> Unit
                 is TagContentScreenState.Loading -> DownloadIndicator()
-                is TagContentScreenState.Content -> TagContentScreenContent(tagContentScreenState = targetState)
-                is TagContentScreenState.Error -> TagContentScreenError(errorMessage = targetState)
+                is TagContentScreenState.Content -> TagContentScreenContent(
+                    refreshData = { viewModel.reloadData(tag = tag) },
+                    topStories = targetState.items,
+                    navController = navController
+                )
+
+                is TagContentScreenState.Error -> TagContentScreenError(
+                    errorMessage = targetState,
+                    refreshData = { viewModel.reloadData(tag = tag) })
+
                 else -> Unit
             }
         }

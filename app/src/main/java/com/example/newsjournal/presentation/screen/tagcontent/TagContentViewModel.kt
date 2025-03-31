@@ -24,11 +24,20 @@ class TagContentViewModel : ViewModel() {
         _state.value = TagContentScreenState.Loading
         viewModelScope.launch {
             try {
-                _state.value = TagContentScreenState.Content(getTopStoriesUseCase.execute(tag))
+                val getTopStories = getTopStoriesUseCase.execute(tag)
+                if (getTopStories != null) {
+                    _state.value = TagContentScreenState.Content(getTopStories)
+                } else {
+                    throw Exception()
+                }
             } catch (e: Exception) {
                 handleError(e.message.toString())
             }
         }
+    }
+
+    fun reloadData(tag: String) {
+        loadData(tag)
     }
 
     private fun handleError(errorMessage: String) {

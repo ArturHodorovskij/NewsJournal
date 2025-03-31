@@ -18,7 +18,7 @@ package com.example.newsjournal.data.models
         "Us",
         "Health",
         "Automobiles",
-        "Books/Review",
+        "Books",
         "Business",
         "Fashion"
     )

@@ -44,7 +44,12 @@ fun HomeScreen(navController: NavController, viewModel: HomeViewModel = viewMode
                     topStories = targetState.items,
                     navController = navController
                 )
-                is HomeScreenState.Error -> HomeScreenError(errorMessage = targetState)
+
+                is HomeScreenState.Error -> HomeScreenError(
+                    errorMessage = targetState,
+                    refreshData = viewModel::reloadData,
+                )
+
                 else -> Unit
             }
         }

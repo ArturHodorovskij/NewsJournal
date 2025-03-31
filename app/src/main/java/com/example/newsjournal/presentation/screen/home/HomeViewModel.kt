@@ -35,8 +35,7 @@ class HomeViewModel : ViewModel() {
                 val getTopStories = getTopStoriesUseCase.execute(section)
                 if (getTopStories != null) {
                     _state.value = HomeScreenState.Content(getTopStories)
-                }
-                else {
+                } else {
                     throw Exception()
                 }
             } catch (e: Exception) {
@@ -45,7 +44,7 @@ class HomeViewModel : ViewModel() {
         }
     }
 
-    fun reloadData(){
+    fun reloadData() {
         loadData(ROOT_NEWS_TAG)
     }
 

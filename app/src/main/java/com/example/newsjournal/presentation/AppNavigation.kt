@@ -35,7 +35,7 @@ fun AppNavigation() {
         }
         composable("TagContentScreen" + "/{tag}") { stackEntry ->
             val tag = stackEntry.arguments?.getString("tag")
-            TagContentScreen(navController, tag)
+            TagContentScreen(navController, tag!!)
         }
     }
 }

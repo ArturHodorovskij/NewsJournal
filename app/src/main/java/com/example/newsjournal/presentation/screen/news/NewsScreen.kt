@@ -1,6 +1,7 @@
 package com.example.newsjournal.presentation.screen.news
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
@@ -23,7 +24,10 @@ fun NewsScreen(navController: NavController, url: String?) {
             startImage = painterResource(R.drawable.reply_24),
             startImageClick = { navController.navigate("HomePage") }
         )
-        WebViewModel(url = url.toString())
+
+        Box(modifier = Modifier.weight(1f)) {
+            WebViewModel(url = url.toString())
+        }
 
         BottomAppBar(
             navController = navController
@@ -31,9 +35,3 @@ fun NewsScreen(navController: NavController, url: String?) {
     }
 }
 
-
-//@Preview(showBackground = true)
-//@Composable
-//fun NewsScreenPreview() {
-//    NewsScreen(navController = rememberNavController())
-//}
