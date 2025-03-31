@@ -6,15 +6,13 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import com.example.newsjournal.R
 import com.example.newsjournal.presentation.design.TopAppBar
 import com.example.newsjournal.presentation.design.bottomappbar.BottomAppBar
 
 @Composable
-fun NewsScreen(navController: NavController){
+fun NewsScreen(navController: NavController, url: String?) {
     Column(
         verticalArrangement = Arrangement.SpaceBetween,
         modifier = Modifier.fillMaxSize()
@@ -25,7 +23,7 @@ fun NewsScreen(navController: NavController){
             startImage = painterResource(R.drawable.reply_24),
             startImageClick = { navController.navigate("HomePage") }
         )
-        WebViewModel(url="https://www.nytimes.com/2025/03/29/movies/how-to-live-in-the-mall.html")
+        WebViewModel(url = url.toString())
 
         BottomAppBar(
             navController = navController
@@ -34,10 +32,8 @@ fun NewsScreen(navController: NavController){
 }
 
 
-
-
-@Preview(showBackground = true)
-@Composable
-fun NewsScreenPreview() {
-    NewsScreen(navController = rememberNavController())
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun NewsScreenPreview() {
+//    NewsScreen(navController = rememberNavController())
+//}

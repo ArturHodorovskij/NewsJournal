@@ -1,5 +1,6 @@
 package com.example.newsjournal.presentation.screen.home
 
+import android.net.Uri
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -30,7 +31,11 @@ import com.example.newsjournal.presentation.design.Separator
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreenContent(navController: NavController, topStories: TopStories, refreshData: () -> Unit) {
+fun HomeScreenContent(
+    navController: NavController,
+    topStories: TopStories,
+    refreshData: () -> Unit
+) {
     val state = rememberPullToRefreshState()
     var isRefreshing: Boolean by remember { mutableStateOf(false) }
 
@@ -53,7 +58,8 @@ fun HomeScreenContent(navController: NavController, topStories: TopStories, refr
                         .padding(8.dp)
                         .clickable {
                             val url = item.url
-                            navController.navigate("NewsScreen")
+                            val encodedUrl = Uri.encode(url)
+                            navController.navigate("NewsScreen/$encodedUrl")
                         }
 
                 ) {

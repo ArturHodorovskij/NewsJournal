@@ -1,5 +1,6 @@
 package com.example.newsjournal.presentation
 
+import android.net.Uri
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -27,10 +28,11 @@ fun AppNavigation() {
         composable("RegistrationPage") { RegistrationScreen(navController) }
         composable("PrivacyPolicyPage") { PrivacyPolicyScreen(navController) }
         composable("NewPasswordPage") { NewPasswordScreen(navController) }
-        composable("NewsScreen") {
-            NewsScreen(navController)
+        composable("NewsScreen" + "/{url}") { stackEntry ->
+            val encodedUrl = stackEntry.arguments?.getString("url")
+            val decodedUrl = Uri.decode(encodedUrl)
+            NewsScreen(navController, url = decodedUrl)
         }
-
         composable("TagContentScreen" + "/{tag}") { stackEntry ->
             val tag = stackEntry.arguments?.getString("tag")
             TagContentScreen(navController, tag)
