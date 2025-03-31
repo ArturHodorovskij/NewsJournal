@@ -1,7 +1,6 @@
 package com.example.newsjournal.presentation.screen.home
 
 import android.net.Uri
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -25,8 +24,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import coil.compose.rememberAsyncImagePainter
 import com.example.newsjournal.domain.models.TopStories
+import com.example.newsjournal.presentation.design.CustomImage
 import com.example.newsjournal.presentation.design.Separator
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -36,7 +35,6 @@ fun HomeScreenContent(
     topStories: TopStories,
     refreshData: () -> Unit
 ) {
-
     val state = rememberPullToRefreshState()
     var isRefreshing: Boolean by remember { mutableStateOf(false) }
 
@@ -49,9 +47,7 @@ fun HomeScreenContent(
         },
         state = state
     ) {
-        LazyColumn(
-            state = rememberLazyListState(),
-        ) {
+        LazyColumn(state = rememberLazyListState()) {
             items(topStories.results) { item ->
                 Column(
                     verticalArrangement = Arrangement.Top,
@@ -62,36 +58,30 @@ fun HomeScreenContent(
                             val encodedUrl = Uri.encode(url)
                             navController.navigate("NewsScreen/$encodedUrl")
                         }
-
                 ) {
-                    val firstImage = item.multimedia?.firstOrNull()?.url
-                    if (firstImage != null) {
-                        val painter = rememberAsyncImagePainter(firstImage)
-                        Image(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .height(200.dp),
-                            painter = painter,
-                            contentDescription = ""
-                        )
-                    }
-
-                    Text(
-                        fontSize = 16.sp,
-                        text = item.title,
-                        fontWeight = FontWeight.Black,
+                    CustomImage(
+                        imageUrl = item.multimedia?.firstOrNull()?.url,
                         modifier = Modifier
-                            .padding(8.dp)
+                            .fillMaxWidth()
+                            .height(200.dp)
                     )
-
-                    Text(
-                        text = item.abstract,
-                        fontSize = 16.sp,
-                        modifier = Modifier
-                            .padding(8.dp)
-                    )
-                    Separator()
                 }
+
+                Text(
+                    fontSize = 16.sp,
+                    text = item.title,
+                    fontWeight = FontWeight.Black,
+                    modifier = Modifier
+                        .padding(8.dp)
+                )
+
+                Text(
+                    text = item.abstract,
+                    fontSize = 16.sp,
+                    modifier = Modifier
+                        .padding(8.dp)
+                )
+                Separator()
             }
         }
     }
