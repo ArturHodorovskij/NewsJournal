@@ -32,7 +32,7 @@ fun FavoriteScreen(navController: NavController) {
         TopAppBar(
             title = "Favorite",
             startImage = painterResource(R.drawable.reply_24),
-            startImageClick = { navController.navigate("HomePage") }
+            startImageClick = { navController.navigateUp()}
         )
         Separator()
         LazyColumn(

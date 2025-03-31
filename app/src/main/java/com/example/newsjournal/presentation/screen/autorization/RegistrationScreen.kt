@@ -41,7 +41,7 @@ fun RegistrationScreen(navController: NavController) {
         TopAppBar(
             title = "Register",
             startImage = painterResource(R.drawable.reply_24),
-            startImageClick = {navController.navigate("LoginPage")}
+            startImageClick = {navController.navigateUp()}
         )
         Separator()
         Text(

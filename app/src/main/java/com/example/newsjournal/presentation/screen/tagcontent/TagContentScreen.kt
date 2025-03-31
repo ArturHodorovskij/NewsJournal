@@ -41,7 +41,7 @@ fun TagContentScreen(
         TopAppBar(
             title = tag,
             startImage = painterResource(R.drawable.reply_24),
-            startImageClick = { navController.navigate("TagsPage") }
+            startImageClick = { navController.navigateUp() }
         )
 
         Crossfade(

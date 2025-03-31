@@ -40,7 +40,7 @@ fun NewPasswordScreen(navController: NavController) {
     ) {
         TopAppBar(title = "Change password",
             startImage = painterResource(R.drawable.reply_24),
-            startImageClick = {navController.navigate("PasswordRecoveryPage")}
+            startImageClick = {navController.navigateUp()}
         )
 
         Separator()

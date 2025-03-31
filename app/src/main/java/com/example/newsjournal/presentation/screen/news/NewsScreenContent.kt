@@ -9,7 +9,7 @@ import androidx.compose.ui.viewinterop.AndroidView
 
 @SuppressLint("SetJavaScriptEnabled")
 @Composable
-fun WebViewModel(url: String) {
+fun NewsScreenContent(url: String) {
     AndroidView(
         factory = {
             WebView(it).apply {

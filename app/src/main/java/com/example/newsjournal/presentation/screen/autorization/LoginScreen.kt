@@ -47,7 +47,7 @@ fun LoginScreen(navController: NavController) {
         TopAppBar(
             title = "Log in",
             startImage = painterResource(R.drawable.reply_24),
-            startImageClick = {navController.navigate("HomePage")}
+            startImageClick = {navController.navigateUp()}
         )
         Separator()
         Text(

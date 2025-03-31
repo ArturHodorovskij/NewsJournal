@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.newsjournal.data.network.GetTopStoriesFromNetwork
 import com.example.newsjournal.data.repository.TopStoriesRepositoryImpl
 import com.example.newsjournal.domain.usecase.GetTopStoriesUseCase
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 

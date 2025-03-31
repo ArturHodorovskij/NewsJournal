@@ -35,7 +35,7 @@ fun PasswordRecoveryScreen(navController: NavController) {
         TopAppBar(
             title = "Password recovery",
             startImage = painterResource(R.drawable.reply_24),
-            startImageClick = {navController.navigate("LoginPage")}
+            startImageClick = {navController.navigateUp()}
         )
 
         Separator()

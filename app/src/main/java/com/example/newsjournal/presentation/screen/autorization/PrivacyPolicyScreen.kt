@@ -32,7 +32,7 @@ fun PrivacyPolicyScreen(navController: NavController) {
         TopAppBar(
             title = "Privacy policy",
             startImage = painterResource(R.drawable.reply_24),
-            startImageClick = {navController.navigate("RegistrationPage")}
+            startImageClick = {navController.navigateUp()}
         )
         Separator()
         LazyColumn(
