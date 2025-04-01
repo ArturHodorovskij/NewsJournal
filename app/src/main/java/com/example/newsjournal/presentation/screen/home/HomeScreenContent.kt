@@ -1,6 +1,5 @@
 package com.example.newsjournal.presentation.screen.home
 
-import android.net.Uri
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -15,7 +14,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.pulltorefresh.PullToRefreshBox
 import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -42,10 +40,6 @@ fun HomeScreenContent(
     val state = rememberPullToRefreshState()
     var isRefreshing: Boolean by remember { mutableStateOf(false) }
 
-    LaunchedEffect(Unit) {
-        newsScreenViewModel.loadNews(items = topStories)
-    }
-
     PullToRefreshBox(
         isRefreshing = isRefreshing,
         onRefresh = {
@@ -62,7 +56,7 @@ fun HomeScreenContent(
                     modifier = Modifier
                         .padding(8.dp)
                         .clickable {
-
+                            newsScreenViewModel.loadNews(items = item)
                             navController.navigate("NewsScreen")
                         }
                 ) {

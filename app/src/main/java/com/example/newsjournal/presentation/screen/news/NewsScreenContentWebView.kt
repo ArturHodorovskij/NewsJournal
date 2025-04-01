@@ -4,15 +4,14 @@ import android.annotation.SuppressLint
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.compose.runtime.Composable
-
 import androidx.compose.ui.viewinterop.AndroidView
-import com.example.newsjournal.domain.models.TopStories
+import com.example.newsjournal.domain.models.Article
+
 
 @SuppressLint("SetJavaScriptEnabled")
 @Composable
-fun NewsScreenContentWebView(topStories: TopStories) {
-    topStories.results.forEach { it ->
-        val url =  it.url
+fun NewsScreenContentWebView(article: Article) {
+    val url = article.url
     AndroidView(
         factory = {
             WebView(it).apply {
@@ -22,4 +21,4 @@ fun NewsScreenContentWebView(topStories: TopStories) {
             }
         })
 }
-}
+
