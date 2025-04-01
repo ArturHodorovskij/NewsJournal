@@ -50,7 +50,7 @@ fun HomeScreenContent(
         state = state
     ) {
         LazyColumn(state = rememberLazyListState()) {
-            items(topStories.results) { item ->
+            items(topStories.results!!) { item ->
                 Column(
                     verticalArrangement = Arrangement.Top,
                     modifier = Modifier
