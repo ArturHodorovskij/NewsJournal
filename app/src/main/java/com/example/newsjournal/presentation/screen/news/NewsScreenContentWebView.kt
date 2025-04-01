@@ -6,10 +6,13 @@ import android.webkit.WebViewClient
 import androidx.compose.runtime.Composable
 
 import androidx.compose.ui.viewinterop.AndroidView
+import com.example.newsjournal.domain.models.TopStories
 
 @SuppressLint("SetJavaScriptEnabled")
 @Composable
-fun NewsScreenContent(url: String) {
+fun NewsScreenContentWebView(topStories: TopStories) {
+    topStories.results.forEach { it ->
+        val url =  it.url
     AndroidView(
         factory = {
             WebView(it).apply {
@@ -18,4 +21,5 @@ fun NewsScreenContent(url: String) {
                 loadUrl(url)
             }
         })
+}
 }

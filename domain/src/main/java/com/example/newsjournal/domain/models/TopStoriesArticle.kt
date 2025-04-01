@@ -5,5 +5,6 @@ data class Article(
     val abstract: String,
     val multimedia: List<Multimedia>?,
     val url: String,
-    val uri:String
+    val byline: String?,
+    val publishedDate: String
 )

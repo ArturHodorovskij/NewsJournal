@@ -8,6 +8,6 @@ class TopStoriesRepositoryImpl(private val topStoriesFromNetwork: TopStoriesNetw
 
     override suspend fun getTopStoriesValue(section: String): TopStories? {
         val topStoriesValue = topStoriesFromNetwork.getTopStoriesValue(section)
-        return topStoriesValue?.let { TopStories(results = it.results) }
+        return topStoriesValue?.let { TopStories(results = it.results, copyright = it.copyright) }
     }
 }

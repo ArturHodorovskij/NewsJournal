@@ -28,11 +28,7 @@ fun AppNavigation() {
         composable("RegistrationPage") { RegistrationScreen(navController) }
         composable("PrivacyPolicyPage") { PrivacyPolicyScreen(navController) }
         composable("NewPasswordPage") { NewPasswordScreen(navController) }
-        composable("NewsScreen" + "/{url}") { stackEntry ->
-            val encodedUrl = stackEntry.arguments?.getString("url")
-            val decodedUrl = Uri.decode(encodedUrl)
-            NewsScreen(navController, url = decodedUrl)
-        }
+        composable("NewsScreen") {NewsScreen(navController) }
         composable("TagContentScreen" + "/{tag}") { stackEntry ->
             val tag = stackEntry.arguments?.getString("tag")
             TagContentScreen(navController, tag!!)

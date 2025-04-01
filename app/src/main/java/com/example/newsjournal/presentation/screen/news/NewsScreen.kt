@@ -5,9 +5,8 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -21,15 +20,10 @@ import com.example.newsjournal.presentation.design.bottomappbar.BottomAppBar
 @Composable
 fun NewsScreen(
     navController: NavController,
-    url: String,
-    viewModel: NewsScreenViewModel = viewModel()
+    newsScreenViewModel: NewsScreenViewModel = viewModel()
 ) {
 
-    val state by viewModel.state.collectAsState()
-
-    LaunchedEffect(Unit) {
-        viewModel.loadUrl(url = url)
-    }
+    val state by newsScreenViewModel.state.observeAsState()
 
     Column(
         verticalArrangement = Arrangement.SpaceBetween,
@@ -45,13 +39,14 @@ fun NewsScreen(
             modifier = Modifier.weight(1f),
             targetState = state, label = "Crossroad"
         ) { targetState ->
-            if (targetState.isLoading) {
-                DownloadIndicator()
-            } else if (targetState.errorMessage != null) {
-                NewsScreenError(errorMessage = targetState)
-            } else NewsScreenContent(url = targetState.url)
+            when (targetState) {
+                is NewsScreenState.Initial -> Unit
+                is NewsScreenState.Loading -> DownloadIndicator()
+                is NewsScreenState.Content -> NewsScreenContentWebView(topStories = targetState.items)
+                is NewsScreenState.Error -> NewsScreenError(errorMessage = targetState)
+                else -> Unit
+            }
         }
-
         BottomAppBar(
             navController = navController
         )

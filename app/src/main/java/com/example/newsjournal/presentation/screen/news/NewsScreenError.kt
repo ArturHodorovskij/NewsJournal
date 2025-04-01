@@ -13,7 +13,7 @@ import androidx.compose.ui.unit.sp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun NewsScreenError(errorMessage: NewsScreenState ) {
+fun NewsScreenError(errorMessage: NewsScreenState.Error ) {
     Box(modifier = Modifier) {
         BasicAlertDialog(onDismissRequest = { }) {
             Card {

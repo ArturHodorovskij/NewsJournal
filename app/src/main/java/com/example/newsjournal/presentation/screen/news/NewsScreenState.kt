@@ -1,5 +1,10 @@
 package com.example.newsjournal.presentation.screen.news
 
-data class NewsScreenState(
-    var url: String = "", var isLoading: Boolean = true, var errorMessage: String? = null
-)
+import com.example.newsjournal.domain.models.TopStories
+
+sealed class NewsScreenState {
+    data object Initial : NewsScreenState()
+    data object Loading : NewsScreenState()
+    data class Content(val items: TopStories) : NewsScreenState()
+    data class Error(val errorMessage: String) : NewsScreenState()
+}

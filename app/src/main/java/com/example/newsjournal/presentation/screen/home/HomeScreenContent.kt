@@ -15,6 +15,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.pulltorefresh.PullToRefreshBox
 import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -23,20 +24,27 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.newsjournal.domain.models.TopStories
 import com.example.newsjournal.presentation.design.CustomImage
 import com.example.newsjournal.presentation.design.Separator
+import com.example.newsjournal.presentation.screen.news.NewsScreenViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreenContent(
     navController: NavController,
     topStories: TopStories,
+    newsScreenViewModel: NewsScreenViewModel = viewModel(),
     refreshData: () -> Unit
 ) {
     val state = rememberPullToRefreshState()
     var isRefreshing: Boolean by remember { mutableStateOf(false) }
+
+    LaunchedEffect(Unit) {
+        newsScreenViewModel.loadNews(items = topStories)
+    }
 
     PullToRefreshBox(
         isRefreshing = isRefreshing,
@@ -54,9 +62,8 @@ fun HomeScreenContent(
                     modifier = Modifier
                         .padding(8.dp)
                         .clickable {
-                            val url = item.url
-                            val encodedUrl = Uri.encode(url)
-                            navController.navigate("NewsScreen/$encodedUrl")
+
+                            navController.navigate("NewsScreen")
                         }
                 ) {
                     CustomImage(
