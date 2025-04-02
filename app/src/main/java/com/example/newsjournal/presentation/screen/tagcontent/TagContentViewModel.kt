@@ -7,7 +7,6 @@ import androidx.lifecycle.viewModelScope
 import com.example.newsjournal.data.network.GetTopStoriesFromNetwork
 import com.example.newsjournal.data.repository.TopStoriesRepositoryImpl
 import com.example.newsjournal.domain.usecase.GetTopStoriesUseCase
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 
@@ -21,7 +20,13 @@ class TagContentViewModel : ViewModel() {
     private val _state = MutableLiveData<TagContentScreenState>()
     val state: LiveData<TagContentScreenState> = _state
 
-    fun loadData(tag: String) {
+    var tag: String = "home"
+
+    init {
+        loadData(tag)
+    }
+
+    private fun loadData(tag: String) {
         _state.value = TagContentScreenState.Loading
         viewModelScope.launch {
             try {

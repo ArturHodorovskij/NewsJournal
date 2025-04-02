@@ -10,5 +10,5 @@ data class MultimediaResponse(
     @SerializedName("type") val type: String,
     @SerializedName("subtype") val subtype: String,
     @SerializedName("caption") val caption: String?,
-    @SerializedName("copyright") val copyright: String?
+    @SerializedName("copyright") val copyright: String
 )

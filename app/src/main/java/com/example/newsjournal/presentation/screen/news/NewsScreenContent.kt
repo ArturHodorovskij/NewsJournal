@@ -15,7 +15,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.newsjournal.domain.models.Article
 import com.example.newsjournal.presentation.design.CustomImage
-import com.example.newsjournal.presentation.design.Separator
 
 @Composable
 fun NewsScreenContent(article: Article) {
@@ -26,70 +25,48 @@ fun NewsScreenContent(article: Article) {
             .padding(8.dp)
             .verticalScroll(scrollState)
     ) {
-        CustomImage(
-            imageUrl = article.multimedia?.firstOrNull()?.url,
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(200.dp)
-        )
-        Text(
-            fontSize = 16.sp,
-            text = article.multimedia!!.first().copyright,
-            fontWeight = FontWeight.Black,
-            modifier = Modifier
-                .padding(8.dp)
-        )
 
         Text(
-            fontSize = 16.sp,
+            fontSize = 24.sp,
             text = article.title,
             fontWeight = FontWeight.Black,
             modifier = Modifier
                 .padding(8.dp)
         )
 
+        CustomImage(
+            imageUrl = article.multimedia?.firstOrNull()?.url,
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(200.dp)
+        )
+
+        Text(
+            fontSize = 12.sp,
+            text = "Ⓒ ${article.multimedia?.first()?.copyright.toString()}",
+            modifier = Modifier
+                .padding(8.dp)
+        )
+
         Text(
             text = article.abstract,
-            fontSize = 16.sp,
+            fontSize = 20.sp,
             modifier = Modifier
                 .padding(8.dp)
         )
 
         Text(
-            text = article.byline,
-            fontSize = 16.sp,
+            text = "Article written ${article.byline.toString()}",
+            fontSize = 12.sp,
             modifier = Modifier
                 .padding(8.dp)
         )
 
         Text(
-            text = article.publishedDate.toString(),
-            fontSize = 16.sp,
+            text = "Published date: ${article.publishedDate.toString()}",
+            fontSize = 12.sp,
             modifier = Modifier
                 .padding(8.dp)
         )
-
-        Text(
-            text = article.updatedDate.toString(),
-            fontSize = 16.sp,
-            modifier = Modifier
-                .padding(8.dp)
-        )
-
-        Text(
-            text = article.createdDate.toString(),
-            fontSize = 16.sp,
-            modifier = Modifier
-                .padding(8.dp)
-        )
-
-        Text(
-            text = article.url,
-            fontSize = 16.sp,
-            modifier = Modifier
-                .padding(8.dp)
-        )
-
-        Separator()
     }
 }

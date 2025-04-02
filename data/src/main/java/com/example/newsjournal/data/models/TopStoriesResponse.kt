@@ -9,5 +9,5 @@ data class TopStoriesResponse(
     @SerializedName("section") val section: String,
     @SerializedName("last_updated") val lastUpdated: String,
     @SerializedName("num_results") val numResults: Int,
-    @SerializedName("results") val results: List<Article>
+    @SerializedName("results") val results: List<ArticleResponse>
 )
