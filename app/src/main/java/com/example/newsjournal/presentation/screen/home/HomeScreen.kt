@@ -15,9 +15,14 @@ import com.example.newsjournal.R
 import com.example.newsjournal.presentation.design.DownloadIndicator
 import com.example.newsjournal.presentation.design.TopAppBar
 import com.example.newsjournal.presentation.design.bottomappbar.BottomAppBar
+import com.example.newsjournal.presentation.screen.news.NewsScreenViewModel
 
 @Composable
-fun HomeScreen(navController: NavController, viewModel: HomeViewModel = viewModel()) {
+fun HomeScreen(
+    navController: NavController,
+    viewModel: HomeViewModel = viewModel(),
+    newsScreenViewModel: NewsScreenViewModel = viewModel()
+) {
 
     val state by viewModel.state.observeAsState()
 
@@ -42,9 +47,9 @@ fun HomeScreen(navController: NavController, viewModel: HomeViewModel = viewMode
                 is HomeScreenState.Content -> HomeScreenContent(
                     refreshData = viewModel::reloadData,
                     topStories = targetState.items,
-                    navController = navController
+                    navController = navController,
+                    newsScreenViewModel = newsScreenViewModel
                 )
-
                 is HomeScreenState.Error -> HomeScreenError(
                     errorMessage = targetState,
                     refreshData = viewModel::reloadData,

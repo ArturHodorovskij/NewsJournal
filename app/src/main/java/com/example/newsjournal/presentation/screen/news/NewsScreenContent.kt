@@ -5,6 +5,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -17,10 +19,12 @@ import com.example.newsjournal.presentation.design.Separator
 
 @Composable
 fun NewsScreenContent(article: Article) {
+    val scrollState = rememberScrollState()
     Column(
         verticalArrangement = Arrangement.Top,
         modifier = Modifier
             .padding(8.dp)
+            .verticalScroll(scrollState)
     ) {
         CustomImage(
             imageUrl = article.multimedia?.firstOrNull()?.url,
@@ -50,6 +54,7 @@ fun NewsScreenContent(article: Article) {
             modifier = Modifier
                 .padding(8.dp)
         )
+
         Text(
             text = article.byline,
             fontSize = 16.sp,
@@ -58,11 +63,33 @@ fun NewsScreenContent(article: Article) {
         )
 
         Text(
-            text = article.publishedDate!!,
+            text = article.publishedDate.toString(),
             fontSize = 16.sp,
             modifier = Modifier
                 .padding(8.dp)
         )
+
+        Text(
+            text = article.updatedDate.toString(),
+            fontSize = 16.sp,
+            modifier = Modifier
+                .padding(8.dp)
+        )
+
+        Text(
+            text = article.createdDate.toString(),
+            fontSize = 16.sp,
+            modifier = Modifier
+                .padding(8.dp)
+        )
+
+        Text(
+            text = article.url,
+            fontSize = 16.sp,
+            modifier = Modifier
+                .padding(8.dp)
+        )
+
         Separator()
     }
 }

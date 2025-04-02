@@ -18,13 +18,15 @@ import com.example.newsjournal.R
 import com.example.newsjournal.presentation.design.DownloadIndicator
 import com.example.newsjournal.presentation.design.TopAppBar
 import com.example.newsjournal.presentation.design.bottomappbar.BottomAppBar
+import com.example.newsjournal.presentation.screen.news.NewsScreenViewModel
 import com.example.newsjournal.presentation.screen.tag.TagsScreen
 
 @Composable
 fun TagContentScreen(
     navController: NavController,
     tag: String,
-    viewModel: TagContentViewModel = viewModel()
+    viewModel: TagContentViewModel = viewModel(),
+    newsScreenViewModel: NewsScreenViewModel = viewModel()
 ) {
 
     val state by viewModel.state.observeAsState()
@@ -54,9 +56,9 @@ fun TagContentScreen(
                 is TagContentScreenState.Content -> TagContentScreenContent(
                     refreshData = { viewModel.reloadData(tag = tag) },
                     topStories = targetState.items,
-                    navController = navController
+                    navController = navController,
+                    newsScreenViewModel=newsScreenViewModel
                 )
-
                 is TagContentScreenState.Error -> TagContentScreenError(
                     errorMessage = targetState,
                     refreshData = { viewModel.reloadData(tag = tag) })

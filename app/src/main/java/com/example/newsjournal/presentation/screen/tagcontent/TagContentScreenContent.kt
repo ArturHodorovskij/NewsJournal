@@ -1,6 +1,5 @@
 package com.example.newsjournal.presentation.screen.tagcontent
 
-import android.net.Uri
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -23,17 +22,20 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.newsjournal.domain.models.TopStories
 import com.example.newsjournal.presentation.design.CustomImage
 import com.example.newsjournal.presentation.design.Separator
+import com.example.newsjournal.presentation.screen.news.NewsScreenViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TagContentScreenContent(
     navController: NavController,
     topStories: TopStories,
-    refreshData: () -> Unit
+    refreshData: () -> Unit,
+    newsScreenViewModel: NewsScreenViewModel = viewModel()
 ) {
     val state = rememberPullToRefreshState()
     var isRefreshing: Boolean by remember { mutableStateOf(false) }
@@ -56,9 +58,8 @@ fun TagContentScreenContent(
                     modifier = Modifier
                         .padding(8.dp)
                         .clickable {
-                            val url = item.url
-                            val encodedUrl = Uri.encode(url)
-                            navController.navigate("NewsScreen/$encodedUrl")
+                            newsScreenViewModel.loadNews(items = item)
+                            navController.navigate("NewsScreen")
                         }
 
                 ) {

@@ -6,5 +6,7 @@ data class Article(
     val multimedia: List<Multimedia>?,
     val url: String,
     val byline: String,
-    val publishedDate: String?
+    val publishedDate: String?,
+    val updatedDate: String?,
+    val createdDate: String?
 )
