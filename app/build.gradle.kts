@@ -46,6 +46,7 @@ dependencies {
     implementation(libs.firebase.crashlytics)
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.analytics)
+    implementation (libs.firebase.firestore)
 
     debugImplementation (libs.leakcanary.android)
     releaseImplementation (libs.leakcanary.android.no.op)
