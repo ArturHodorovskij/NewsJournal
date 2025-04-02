@@ -1,6 +1,6 @@
-package com.example.newsjournal.data.repository
+package com.example.newsjournal.data.getTopStories.repository
 
-import com.example.newsjournal.data.network.TopStoriesNetwork
+import com.example.newsjournal.data.getTopStories.network.TopStoriesNetwork
 import com.example.newsjournal.domain.models.Article
 import com.example.newsjournal.domain.models.Multimedia
 import com.example.newsjournal.domain.models.TopStories

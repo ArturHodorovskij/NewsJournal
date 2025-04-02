@@ -1,8 +1,8 @@
-package com.example.newsjournal.data.models
+package com.example.newsjournal.data.getTopStories.models
 
 import com.google.gson.annotations.SerializedName
 
-data class MultimediaResponse(
+data class MultimediaNYT(
     @SerializedName("url") val url: String,
     @SerializedName("format") val format: String,
     @SerializedName("height") val height: Int,

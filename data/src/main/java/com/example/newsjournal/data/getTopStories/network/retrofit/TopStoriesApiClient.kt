@@ -1,10 +1,10 @@
-package com.example.newsjournal.data.network.retrofit
+package com.example.newsjournal.data.getTopStories.network.retrofit
 
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object RetrofitInstance {
+object TopStoriesApiClient {
     private const val BASE_URL = "https://api.nytimes.com/svc/topstories/v2/"
     private val retrofit: Retrofit by lazy { //TODO разобраться как это работает
         val client = OkHttpClient.Builder().build()

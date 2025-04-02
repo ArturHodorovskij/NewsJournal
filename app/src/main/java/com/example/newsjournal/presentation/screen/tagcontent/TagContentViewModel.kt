@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.newsjournal.data.network.GetTopStoriesFromNetwork
-import com.example.newsjournal.data.repository.TopStoriesRepositoryImpl
+import com.example.newsjournal.data.getTopStories.network.GetTopStoriesFromNetwork
+import com.example.newsjournal.data.getTopStories.repository.TopStoriesRepositoryImpl
 import com.example.newsjournal.domain.usecase.GetTopStoriesUseCase
 import kotlinx.coroutines.launch
 

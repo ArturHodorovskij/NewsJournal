@@ -1,6 +1,6 @@
-package com.example.newsjournal.data.network.retrofit
+package com.example.newsjournal.data.getTopStories.network.retrofit
 
-import com.example.newsjournal.data.models.TopStoriesResponse
+import com.example.newsjournal.data.getTopStories.models.TopStoriesNYT
 
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -11,5 +11,5 @@ interface TopStoriesApi {
     suspend fun getTopStories(
         @Path("section") section: String,
         @Query("api-key") apiKey: String
-    ): TopStoriesResponse?
+    ):  TopStoriesNYT?
 }

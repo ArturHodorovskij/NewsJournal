@@ -1,9 +1,8 @@
-package com.example.newsjournal.data.models
+package com.example.newsjournal.data.getTopStories.models
 
-import com.example.newsjournal.domain.models.Multimedia
 import com.google.gson.annotations.SerializedName
 
-data class ArticleResponse(
+data class ArticleNYT(
     @SerializedName("section") val section: String,
     @SerializedName("subsection") val subsection: String?,
     @SerializedName("title") val title: String,
@@ -21,7 +20,7 @@ data class ArticleResponse(
     @SerializedName("org_facet") val orgFacet: List<String>?,
     @SerializedName("per_facet") val perFacet: List<String>?,
     @SerializedName("geo_facet") val geoFacet: List<String>?,
-    @SerializedName("multimedia") val multimedia: List<MultimediaResponse>?,
+    @SerializedName("multimedia") val multimedia: List<MultimediaNYT>?,
     @SerializedName("short_url") val shortFrl: String
 )
 

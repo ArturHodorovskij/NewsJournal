@@ -1,13 +1,12 @@
-package com.example.newsjournal.data.models
+package com.example.newsjournal.data.getTopStories.models
 
-import com.example.newsjournal.domain.models.Article
 import com.google.gson.annotations.SerializedName
 
-data class TopStoriesResponse(
+data class TopStoriesNYT(
     @SerializedName("status") val status: String,
     @SerializedName("copyright") val copyright: String,
     @SerializedName("section") val section: String,
     @SerializedName("last_updated") val lastUpdated: String,
     @SerializedName("num_results") val numResults: Int,
-    @SerializedName("results") val results: List<ArticleResponse>
+    @SerializedName("results") val results: List<ArticleNYT>
 )
