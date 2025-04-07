@@ -21,6 +21,7 @@ data class ArticleNYT(
     @SerializedName("per_facet") val perFacet: List<String>?,
     @SerializedName("geo_facet") val geoFacet: List<String>?,
     @SerializedName("multimedia") val multimedia: List<MultimediaNYT>?,
-    @SerializedName("short_url") val shortFrl: String
+    @SerializedName("short_url") val shortFrl: String,
+    var checked: Boolean = false
 )
 

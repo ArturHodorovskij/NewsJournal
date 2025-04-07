@@ -1,17 +1,15 @@
-package com.example.newsjournal.data.getTopStories.repository
+package com.example.newsjournal.data.firestore.repository
 
-import com.example.newsjournal.data.getTopStories.network.TopStoriesNetwork
+import com.example.newsjournal.data.firestore.network.NewsFireStore
 import com.example.newsjournal.domain.models.Article
 import com.example.newsjournal.domain.models.Multimedia
 import com.example.newsjournal.domain.models.TopStories
-import com.example.newsjournal.domain.network.TopStoriesRepository
+import com.example.newsjournal.domain.network.FireStoreRepository
 
-class TopStoriesRepositoryImpl(private val topStoriesFromNetwork: TopStoriesNetwork) :
-    TopStoriesRepository {
-    override suspend fun getTopStoriesValue(section: String): TopStories? {
-        val topStoriesValue = topStoriesFromNetwork.getTopStoriesValue(section)
-
-        return topStoriesValue?.let {
+class FireStoreRepositoryImpl(private val newsFireStore: NewsFireStore) : FireStoreRepository {
+    override suspend fun getNewsValue(collection: String): TopStories? {
+        val newsValue = newsFireStore.getNewsFromFireStore(collection)
+        return newsValue?.let {
             TopStories(results = it.results.map { items ->
                 Article(
                     title = items.title,
@@ -25,12 +23,10 @@ class TopStoriesRepositoryImpl(private val topStoriesFromNetwork: TopStoriesNetw
                             copyright = item.copyright
                         )
                     },
-                   section = items.section,
+                    section = items.section,
                     checked = items.checked
                 )
             }, copyright = it.copyright)
         }
     }
 }
-
-

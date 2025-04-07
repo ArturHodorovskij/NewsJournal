@@ -7,8 +7,6 @@ data class Article(
     val url: String,
     val byline: String?,
     val publishedDate: String?,
-    val updatedDate: String?,
-    val createdDate: String?,
     val section: String,
-    var checked: Boolean = false
+    var checked: Boolean
 )

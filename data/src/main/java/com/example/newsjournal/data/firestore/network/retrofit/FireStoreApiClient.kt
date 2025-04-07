@@ -1,4 +1,4 @@
-package com.example.newsjournal.data.firestore.retrofit
+package com.example.newsjournal.data.firestore.network.retrofit
 
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
