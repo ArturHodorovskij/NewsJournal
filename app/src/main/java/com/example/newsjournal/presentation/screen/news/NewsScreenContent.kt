@@ -67,6 +67,14 @@ fun NewsScreenContent(article: Article) {
             fontSize = 12.sp,
             modifier = Modifier
                 .padding(8.dp)
+
+        )
+
+        Text(
+            text = article.url,
+            fontSize = 16.sp,
+            modifier = Modifier
+                .padding(8.dp)
         )
     }
 }

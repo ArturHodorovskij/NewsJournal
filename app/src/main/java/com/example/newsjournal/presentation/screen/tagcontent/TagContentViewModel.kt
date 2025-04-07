@@ -20,13 +20,7 @@ class TagContentViewModel : ViewModel() {
     private val _state = MutableLiveData<TagContentScreenState>()
     val state: LiveData<TagContentScreenState> = _state
 
-    var tag: String = "home"
-
-    init {
-        loadData(tag)
-    }
-
-    private fun loadData(tag: String) {
+     fun loadData(tag: String) {
         _state.value = TagContentScreenState.Loading
         viewModelScope.launch {
             try {

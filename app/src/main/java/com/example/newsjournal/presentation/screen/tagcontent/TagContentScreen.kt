@@ -32,7 +32,7 @@ fun TagContentScreen(
     val state by viewModel.state.observeAsState()
 
     LaunchedEffect(Unit) {
-        viewModel.tag = tag
+        viewModel.loadData(tag = tag)
     }
 
     Column(

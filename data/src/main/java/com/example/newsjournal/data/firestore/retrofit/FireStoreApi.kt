@@ -1,6 +1,6 @@
 package com.example.newsjournal.data.firestore.retrofit
 
-import com.example.newsjournal.data.firestore.models.TopStoriesFireStore
+import com.example.newsjournal.data.firestore.models.ArticleFireStore
 import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.GET
@@ -9,22 +9,22 @@ import retrofit2.http.Path
 
 interface FireStoreApi {
 
-    @GET("projects/{projectId}/databases/{databaseId}/documents/{collectionId}")
+    @GET("projects/{projectId}/databases/(default)/documents/{collectionId}/{documentId}")
     suspend fun getItems(
         @Path("projectId") projectId: String,
         @Path("databaseId") databaseId: String,
         @Path("collectionId") collectionId: String
-    ): TopStoriesFireStore?
+    ): ArticleFireStore?
 
-    @POST("projects/{projectId}/databases/{databaseId}/documents/{collectionId}")
+    @POST("projects/{projectId}/databases/(default)/documents/{collectionId}/{documentId}")
     suspend fun addItem(
         @Path("projectId") projectId: String,
         @Path("databaseId") databaseId: String,
         @Path("collectionId") collectionId: String,
-        @Body item: TopStoriesFireStore?
+        @Body item: ArticleFireStore
     )
 
-    @DELETE("projects/{projectId}/databases/{databaseId}/documents/{documentPath}")
+    @DELETE("projects/{projectId}/databases/(default)/documents/{documentPath}")
     suspend fun deleteItem(
         @Path("projectId") projectId: String,
         @Path("databaseId") databaseId: String,

@@ -26,6 +26,7 @@ class HomeViewModel : ViewModel() {
 
     init {
         loadData(ROOT_NEWS_TAG)
+
     }
 
     private fun loadData(section: String) {

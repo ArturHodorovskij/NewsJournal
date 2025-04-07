@@ -36,5 +36,5 @@ fun ActionButton(textButton:String, onClick:()->Unit){
 @Composable
 
 fun ActionButtonPreview(){
-    ActionButton("хуй", onClick = {})
+    ActionButton("kek", onClick = {})
 }

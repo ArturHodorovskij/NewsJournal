@@ -8,5 +8,7 @@ data class ArticleFireStore(
     val byline: String?,
     val publishedDate: String?,
     val updatedDate: String?,
-    val createdDate: String?
+    val createdDate: String?,
+    val section: String,
+    var checked: Boolean
 )

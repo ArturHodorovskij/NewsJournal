@@ -27,6 +27,7 @@ class TopStoriesRepositoryImpl(private val topStoriesFromNetwork: TopStoriesNetw
                             copyright = item.copyright
                         )
                     },
+                   section = items.section
                 )
             }, copyright = it.copyright)
         }
