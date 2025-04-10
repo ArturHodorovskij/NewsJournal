@@ -24,7 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import com.example.newsjournal.domain.models.TopStories
+import com.example.newsjournal.data.backendless.ShortArticle
 import com.example.newsjournal.presentation.design.CustomImage
 import com.example.newsjournal.presentation.design.Separator
 import com.example.newsjournal.presentation.screen.news.NewsScreenViewModel
@@ -33,7 +33,7 @@ import com.example.newsjournal.presentation.screen.news.NewsScreenViewModel
 @Composable
 fun HomeScreenContent(
     navController: NavController,
-    topStories: TopStories,
+    articles: List<ShortArticle>,
     newsScreenViewModel: NewsScreenViewModel = viewModel(),
     refreshData: () -> Unit
 ) {
@@ -50,18 +50,18 @@ fun HomeScreenContent(
         state = state
     ) {
         LazyColumn(state = rememberLazyListState()) {
-            items(topStories.results) { item ->
+            items(articles) { item ->
                 Column(
                     verticalArrangement = Arrangement.Top,
                     modifier = Modifier
                         .padding(8.dp)
                         .clickable {
-                            newsScreenViewModel.loadNews(items = item)
+//                            newsScreenViewModel.loadNews(items = item)
                             navController.navigate("NewsScreen")
                         }
                 ) {
                     CustomImage(
-                        imageUrl = item.multimedia?.firstOrNull()?.url,
+                        imageUrl = item.image_url,
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(200.dp)
@@ -76,7 +76,7 @@ fun HomeScreenContent(
                     )
 
                     Text(
-                        text = item.abstract,
+                        text = item.description,
                         fontSize = 16.sp,
                         modifier = Modifier
                             .padding(8.dp)
