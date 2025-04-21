@@ -10,15 +10,7 @@ class MyApplication: Application() {
         super.onCreate()
         Timber.plant(Timber.DebugTree())
         if (BuildConfig.DEBUG) {
-            LeakCanary.config //TODO хз или правильно подключил
-
-            //if (LeakCanary.isInAnalyzerProcess(this)) {
-            //
-            //      return;
-            //    }
-            //    LeakCanary.install(this);
-            //
-            //  } TODO чат гпт и гемини пишут такое, но почему то инсталл не работает и исИнАналузерПроцесс
+            LeakCanary.config
         }
     }
 }

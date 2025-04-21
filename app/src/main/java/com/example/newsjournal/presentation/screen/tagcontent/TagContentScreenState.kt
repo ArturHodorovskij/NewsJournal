@@ -1,6 +1,6 @@
 package com.example.newsjournal.presentation.screen.tagcontent
 
-import com.example.newsjournal.domain.models.TopStories
+import com.example.newsjournal.domain.models.NYT.TopStories
 
 sealed class TagContentScreenState {
     data object Initial : TagContentScreenState()

@@ -24,7 +24,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import com.example.newsjournal.data.backendless.ShortArticle
+import com.example.newsjournal.data.backendless.models.BackendlessArticle
+import com.example.newsjournal.domain.models.backandless.NewsDetails
 import com.example.newsjournal.presentation.design.CustomImage
 import com.example.newsjournal.presentation.design.Separator
 import com.example.newsjournal.presentation.screen.news.NewsScreenViewModel
@@ -33,7 +34,7 @@ import com.example.newsjournal.presentation.screen.news.NewsScreenViewModel
 @Composable
 fun HomeScreenContent(
     navController: NavController,
-    articles: List<ShortArticle>,
+    articles: List<NewsDetails>,
     newsScreenViewModel: NewsScreenViewModel = viewModel(),
     refreshData: () -> Unit
 ) {
@@ -61,7 +62,7 @@ fun HomeScreenContent(
                         }
                 ) {
                     CustomImage(
-                        imageUrl = item.image_url,
+                        imageUrl = item.imageUrl,
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(200.dp)

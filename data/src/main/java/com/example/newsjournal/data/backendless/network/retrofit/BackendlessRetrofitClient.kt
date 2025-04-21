@@ -1,11 +1,11 @@
-package com.example.newsjournal.data.network.retrofit
+package com.example.newsjournal.data.backendless.network.retrofit
 
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object RetrofitInstance {
-    private const val BASE_URL = "https://api.nytimes.com/svc/topstories/v2/"
+object BackendlessRetrofitClient {
+    private const val BASE_URL = "https://api.backendless.com/5528BCE7-79F1-4E3E-9203-F4D3E4470642/3B39F838-F153-452E-AAF8-63DE1FB860DB/data/"
     private val retrofit: Retrofit by lazy { //TODO разобраться как это работает
         val client = OkHttpClient.Builder().build()
         Retrofit.Builder()
@@ -14,5 +14,6 @@ object RetrofitInstance {
             .client(client)
             .build()
     }
-    val api: TopStoriesApi by lazy { retrofit.create(TopStoriesApi::class.java) }
+
+    val api: NewsApi by lazy { retrofit.create(NewsApi::class.java) }
 }

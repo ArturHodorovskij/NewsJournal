@@ -1,6 +1,5 @@
-package com.example.newsjournal.data.models
+package com.example.newsjournal.data.nyt.models
 
-import com.example.newsjournal.domain.models.Article
 import com.google.gson.annotations.SerializedName
 
 data class TopStoriesResponse(

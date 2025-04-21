@@ -1,5 +1,6 @@
 package com.example.newsjournal.presentation.screen.home
 
+import androidx.compose.animation.Crossfade
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -11,6 +12,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.newsjournal.R
+import com.example.newsjournal.presentation.design.DownloadIndicator
 import com.example.newsjournal.presentation.design.TopAppBar
 import com.example.newsjournal.presentation.design.bottomappbar.BottomAppBar
 import com.example.newsjournal.presentation.screen.news.NewsScreenViewModel
@@ -23,7 +25,6 @@ fun HomeScreen(
 ) {
 
     val state by viewModel.state.observeAsState()
-    val newState by viewModel.newState.observeAsState()
 
     Column(
         verticalArrangement = Arrangement.SpaceBetween,
@@ -36,36 +37,27 @@ fun HomeScreen(
             startImageClick = { navController.navigate("LoginPage") }
         )
 
-        newState?.let {
-            HomeScreenContent(
-                refreshData = viewModel::reloadData,
-                articles = it,
-                navController = navController,
-                newsScreenViewModel = newsScreenViewModel
-            )
-        }
+        Crossfade(
+            modifier = Modifier.weight(1f),
+            targetState = state, label = "Crossroad"
+        ) { targetState ->
+            when (targetState) {
+                is HomeScreenState.Initial -> Unit
+                is HomeScreenState.Loading -> DownloadIndicator()
+                is HomeScreenState.Content -> HomeScreenContent(
+                    refreshData = viewModel::reloadData,
+                    articles = targetState.items,
+                    navController = navController,
+                    newsScreenViewModel = newsScreenViewModel
+                )
+                is HomeScreenState.Error -> HomeScreenError(
+                    errorMessage = targetState,
+                    refreshData = viewModel::reloadData,
+                )
 
-//        Crossfade(
-//            modifier = Modifier.weight(1f),
-//            targetState = state, label = "Crossroad"
-//        ) { targetState ->
-//            when (targetState) {
-//                is HomeScreenState.Initial -> Unit
-//                is HomeScreenState.Loading -> DownloadIndicator()
-//                is HomeScreenState.Content -> HomeScreenContent(
-//                    refreshData = viewModel::reloadData,
-//                    topStories = targetState.items,
-//                    navController = navController,
-//                    newsScreenViewModel = newsScreenViewModel
-//                )
-//                is HomeScreenState.Error -> HomeScreenError(
-//                    errorMessage = targetState,
-//                    refreshData = viewModel::reloadData,
-//                )
-//
-//                else -> Unit
-//            }
-//        }
+                else -> Unit
+            }
+        }
 
         BottomAppBar(
             navController = navController

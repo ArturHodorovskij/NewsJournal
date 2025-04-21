@@ -24,7 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import com.example.newsjournal.domain.models.TopStories
+import com.example.newsjournal.domain.models.NYT.TopStories
 import com.example.newsjournal.presentation.design.CustomImage
 import com.example.newsjournal.presentation.design.Separator
 import com.example.newsjournal.presentation.screen.news.NewsScreenViewModel

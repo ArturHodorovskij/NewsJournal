@@ -1,7 +1,7 @@
-package com.example.newsjournal.data.network
+package com.example.newsjournal.data.nyt.network
 
-import com.example.newsjournal.data.models.TopStoriesResponse
-import com.example.newsjournal.data.network.retrofit.RetrofitInstance
+import com.example.newsjournal.data.nyt.models.TopStoriesResponse
+import com.example.newsjournal.data.nyt.network.retrofit.RetrofitInstance
 
 private const val API_KEY = "obOVPCKM90qO7FX4aUKp4ZcsVYmzBX02"
 

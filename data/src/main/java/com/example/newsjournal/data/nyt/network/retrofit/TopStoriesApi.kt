@@ -1,6 +1,6 @@
-package com.example.newsjournal.data.network.retrofit
+package com.example.newsjournal.data.nyt.network.retrofit
 
-import com.example.newsjournal.data.models.TopStoriesResponse
+import com.example.newsjournal.data.nyt.models.TopStoriesResponse
 
 import retrofit2.http.GET
 import retrofit2.http.Path

@@ -5,7 +5,7 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.viewinterop.AndroidView
-import com.example.newsjournal.domain.models.Article
+import com.example.newsjournal.domain.models.NYT.Article
 
 
 @SuppressLint("SetJavaScriptEnabled")

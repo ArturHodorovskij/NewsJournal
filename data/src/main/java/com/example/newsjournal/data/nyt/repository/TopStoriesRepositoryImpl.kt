@@ -1,9 +1,9 @@
-package com.example.newsjournal.data.repository
+package com.example.newsjournal.data.nyt.repository
 
-import com.example.newsjournal.data.network.TopStoriesNetwork
-import com.example.newsjournal.domain.models.Article
-import com.example.newsjournal.domain.models.Multimedia
-import com.example.newsjournal.domain.models.TopStories
+import com.example.newsjournal.data.nyt.network.TopStoriesNetwork
+import com.example.newsjournal.domain.models.NYT.Article
+import com.example.newsjournal.domain.models.NYT.Multimedia
+import com.example.newsjournal.domain.models.NYT.TopStories
 import com.example.newsjournal.domain.network.TopStoriesRepository
 
 class TopStoriesRepositoryImpl(private val topStoriesFromNetwork: TopStoriesNetwork) :

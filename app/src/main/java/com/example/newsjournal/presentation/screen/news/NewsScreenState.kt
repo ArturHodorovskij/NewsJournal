@@ -1,6 +1,6 @@
 package com.example.newsjournal.presentation.screen.news
 
-import com.example.newsjournal.domain.models.Article
+import com.example.newsjournal.domain.models.NYT.Article
 
 sealed class NewsScreenState {
     data object Initial : NewsScreenState()

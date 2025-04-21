@@ -1,6 +1,6 @@
 package com.example.newsjournal.domain.usecase
 
-import com.example.newsjournal.domain.models.TopStories
+import com.example.newsjournal.domain.models.NYT.TopStories
 import com.example.newsjournal.domain.network.TopStoriesRepository
 
 class GetTopStoriesUseCase(private val topStoriesRepository: TopStoriesRepository) {
