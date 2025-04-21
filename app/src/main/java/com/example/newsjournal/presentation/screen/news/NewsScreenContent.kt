@@ -14,10 +14,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.newsjournal.domain.models.NYT.Article
+import com.example.newsjournal.domain.models.backandless.NewsDetails
 import com.example.newsjournal.presentation.design.CustomImage
 
 @Composable
-fun NewsScreenContent(article: Article) {
+fun NewsScreenContent(article: NewsDetails) {
     val scrollState = rememberScrollState()
     Column(
         verticalArrangement = Arrangement.Top,
@@ -35,35 +36,29 @@ fun NewsScreenContent(article: Article) {
         )
 
         CustomImage(
-            imageUrl = article.multimedia?.firstOrNull()?.url,
+            imageUrl = article.imageUrl,
             modifier = Modifier
                 .fillMaxWidth()
                 .height(200.dp)
         )
 
+
         Text(
-            fontSize = 12.sp,
-            text = "Ⓒ ${article.multimedia?.first()?.copyright.toString()}",
+            text = article.description,
+            fontSize = 20.sp,
             modifier = Modifier
                 .padding(8.dp)
         )
-
         Text(
-            text = article.abstract,
+            text = article.content,
             fontSize = 20.sp,
             modifier = Modifier
                 .padding(8.dp)
         )
 
-        Text(
-            text = "Article written ${article.byline.toString()}",
-            fontSize = 12.sp,
-            modifier = Modifier
-                .padding(8.dp)
-        )
 
         Text(
-            text = "Published date: ${article.publishedDate.toString()}",
+            text = "Published date: ${article.publishDate}",
             fontSize = 12.sp,
             modifier = Modifier
                 .padding(8.dp)

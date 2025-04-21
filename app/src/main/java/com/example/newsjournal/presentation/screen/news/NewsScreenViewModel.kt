@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.newsjournal.domain.models.NYT.Article
+import com.example.newsjournal.domain.models.backandless.NewsDetails
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -14,7 +15,7 @@ class NewsScreenViewModel : ViewModel() {
     private val _state = MutableLiveData<NewsScreenState>()
     val state: LiveData<NewsScreenState> = _state
 
-    fun loadNews(items: Article) {
+    fun loadNews(items: NewsDetails) {
         _state.value = NewsScreenState.Loading
         viewModelScope.launch {
             delay(1000)

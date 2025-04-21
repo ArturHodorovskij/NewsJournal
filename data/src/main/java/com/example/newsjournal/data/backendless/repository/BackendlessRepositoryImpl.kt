@@ -20,4 +20,19 @@ class BackendlessRepositoryImpl(private val getNewsFromBackendless: NewsBackendl
             )
         }
     }
+
+    override suspend fun getNewsByTag(tag: String): List<NewsDetails> {
+        val news = getNewsFromBackendless.getNewsByTag(tag)
+        return news.map {
+            NewsDetails(
+                isFavourite = it.isFavourite,
+                content = it.content,
+                description = it.description,
+                imageUrl = it.imageUrl,
+                publishDate = it.publishDate,
+                tags = it.tags,
+                title = it.title
+            )
+        }
+    }
 }

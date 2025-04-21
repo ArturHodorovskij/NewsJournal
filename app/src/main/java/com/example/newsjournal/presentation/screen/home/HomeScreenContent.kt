@@ -57,7 +57,7 @@ fun HomeScreenContent(
                     modifier = Modifier
                         .padding(8.dp)
                         .clickable {
-//                            newsScreenViewModel.loadNews(items = item)
+                            newsScreenViewModel.loadNews(items = item)
                             navController.navigate("NewsScreen")
                         }
                 ) {

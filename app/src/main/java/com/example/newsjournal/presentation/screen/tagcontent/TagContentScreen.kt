@@ -32,7 +32,7 @@ fun TagContentScreen(
     val state by viewModel.state.observeAsState()
 
     LaunchedEffect(Unit) {
-        viewModel.tag = tag
+        viewModel.loadData(tag=tag)
     }
 
     Column(
@@ -55,7 +55,7 @@ fun TagContentScreen(
                 is TagContentScreenState.Loading -> DownloadIndicator()
                 is TagContentScreenState.Content -> TagContentScreenContent(
                     refreshData = { viewModel.reloadData(tag = tag) },
-                    topStories = targetState.items,
+                    articles = targetState.items,
                     navController = navController,
                     newsScreenViewModel=newsScreenViewModel
                 )

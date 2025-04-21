@@ -4,13 +4,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.newsjournal.data.backendless.models.BackendlessArticle
 import com.example.newsjournal.data.backendless.network.GetAllNews
 import com.example.newsjournal.data.backendless.repository.BackendlessRepositoryImpl
 import com.example.newsjournal.data.nyt.network.GetTopStoriesFromNetwork
 import com.example.newsjournal.data.nyt.repository.TopStoriesRepositoryImpl
 import com.example.newsjournal.domain.models.backandless.NewsDetails
-import com.example.newsjournal.domain.usecase.GetNewsFromBackendlessUseCase
+import com.example.newsjournal.domain.usecase.GetAllNewsUseCase
 import com.example.newsjournal.domain.usecase.GetTopStoriesUseCase
 import kotlinx.coroutines.launch
 
@@ -24,7 +23,7 @@ class HomeViewModel : ViewModel() {
     private var backendlessRepository =
         BackendlessRepositoryImpl(getNewsFromBackendless = getAllNews)
     private var getNewsFromBackendlessUseCase =
-        GetNewsFromBackendlessUseCase(backendlessRepository = backendlessRepository)
+        GetAllNewsUseCase(backendlessRepository = backendlessRepository)
 
 
     private var getTopStoriesFromNetwork = GetTopStoriesFromNetwork()

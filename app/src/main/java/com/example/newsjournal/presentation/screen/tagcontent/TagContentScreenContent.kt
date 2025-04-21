@@ -24,7 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import com.example.newsjournal.domain.models.NYT.TopStories
+import com.example.newsjournal.domain.models.backandless.NewsDetails
 import com.example.newsjournal.presentation.design.CustomImage
 import com.example.newsjournal.presentation.design.Separator
 import com.example.newsjournal.presentation.screen.news.NewsScreenViewModel
@@ -33,7 +33,7 @@ import com.example.newsjournal.presentation.screen.news.NewsScreenViewModel
 @Composable
 fun TagContentScreenContent(
     navController: NavController,
-    topStories: TopStories,
+    articles: List<NewsDetails>,
     refreshData: () -> Unit,
     newsScreenViewModel: NewsScreenViewModel = viewModel()
 ) {
@@ -52,7 +52,7 @@ fun TagContentScreenContent(
         LazyColumn(
             state = rememberLazyListState(),
         ) {
-            items(topStories.results) { item ->
+            items(articles) { item ->
                 Column(
                     verticalArrangement = Arrangement.Top,
                     modifier = Modifier
@@ -64,7 +64,7 @@ fun TagContentScreenContent(
 
                 ) {
                     CustomImage(
-                        imageUrl = item.multimedia?.firstOrNull()?.url,
+                        imageUrl = item.imageUrl,
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(200.dp)
@@ -79,7 +79,7 @@ fun TagContentScreenContent(
                     )
 
                     Text(
-                        text = item.abstract,
+                        text = item.description,
                         fontSize = 16.sp,
                         modifier = Modifier
                             .padding(8.dp)
