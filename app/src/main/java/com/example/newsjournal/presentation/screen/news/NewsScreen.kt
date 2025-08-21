@@ -42,8 +42,8 @@ fun NewsScreen(
             when (targetState) {
                 is NewsScreenState.Initial -> Unit
                 is NewsScreenState.Loading -> DownloadIndicator()
-//                is NewsScreenState.Content -> NewsScreenContentWebView(article = targetState.items)
-                is NewsScreenState.Content -> NewsScreenContent(article = targetState.items)
+                is NewsScreenState.Content -> NewsScreenContentWebView(article = targetState.items)
+//                is NewsScreenState.Content -> NewsScreenContent(article = targetState.items)
                 is NewsScreenState.Error -> NewsScreenError(errorMessage = targetState)
                 else -> Unit
             }
